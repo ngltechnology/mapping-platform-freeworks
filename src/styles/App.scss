@@ -1,0 +1,20 @@
+$background-color: #eee;
+$text-color: #444;
+
+body{
+  text-align: center;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+.map-contain{
+  position: absolute;
+  height: 30vh;
+  width: 80vw;
+  top: 65vh;
+  left: 10vw;
+  background-color: white;
+}
+
+@import 'GeocodeResult';
+@import 'Map';
