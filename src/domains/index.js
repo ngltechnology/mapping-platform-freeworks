@@ -3,8 +3,8 @@ export const currentLocation = () => {
 		navigator.geolocation.getCurrentPosition(
 			position =>	{
 				const data = position.coords
-				console.log(data)
-				return {lat: data.latitude, lng: data.longitude}
+				console.log({lat: data.latitude, lng: data.longitude})
+				return ({lat: data.latitude, lng: data.longitude})
 			},
 			error => {
 				console.log(error)

@@ -15,6 +15,11 @@ body{
   left: 10vw;
   background-color: white;
 }
+.clear-button{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
 
 @import 'GeocodeResult';
 @import 'Map';
