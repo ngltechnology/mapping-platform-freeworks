@@ -2,12 +2,11 @@ import React from "react"
 import PropTypes from "prop-types"
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
-const InnerMap = withGoogleMap( ({location, marker, quests, markerClick1}) => (
+const InnerMap = withGoogleMap( ({location, marker, quests, markerClick}) => (
     <GoogleMap
       defaultZoom={16}
       defaultCenter={location}
       center={location}
-      disableDefaultUI={0}
     >
         <Marker 
             {...marker}
@@ -16,14 +15,14 @@ const InnerMap = withGoogleMap( ({location, marker, quests, markerClick1}) => (
             <Marker 
               position={quest.location}
               key={quest.key}
-              onClick={markerClick1(quest.key)}
+              markerClick={markerClick}
             />
           )
         )}
     </GoogleMap>
 ));
   
-const Map = ({location,markerClick,quests,markerClick1}) => {
+const Map = ({location,markerClick,quests}) => {
   return (
   <InnerMap
       containerElement={(<div />)}
@@ -31,9 +30,8 @@ const Map = ({location,markerClick,quests,markerClick1}) => {
       center={location}
       location={location}
       marker={{position: location, onClick: markerClick}}
+      markerClick={markerClick}
       quests={quests}
-      markerClick1={markerClick1}
-
   />
 )}
 
