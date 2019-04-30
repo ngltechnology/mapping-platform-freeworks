@@ -15,7 +15,7 @@ const InnerMap = withGoogleMap( ({location, marker, quests, markerClick}) => (
             <Marker 
               position={quest.location}
               key={quest.key}
-              markerClick={markerClick}
+              onClick={markerClick}
             />
           )
         )}

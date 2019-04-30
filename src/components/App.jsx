@@ -12,6 +12,7 @@ import '../styles/App.scss';
 
 const GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyAOaeuXU_Hlf731vA_BdOoLKwdJ-udINAI'
 
+
 class App extends Component {
   constructor(props){
     super(props)
@@ -101,7 +102,6 @@ class App extends Component {
         <Map
           location={this.state.location}
           markerClick={this.markerClick}
-          markerClick1={this.markerClick1}
           quests={this.state.quests}
         />
         <Grow
