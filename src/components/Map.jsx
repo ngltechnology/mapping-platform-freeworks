@@ -25,13 +25,13 @@ const InnerMap = withGoogleMap( ({location, marker, quests, markerClick}) => (
 const Map = ({location,markerClick,quests}) => {
   return (
   <InnerMap
-      containerElement={(<div />)}
-      mapElement={(<div className="map" />)}
-      center={location}
-      location={location}
-      marker={{position: location, onClick: markerClick}}
-      markerClick={markerClick}
-      quests={quests}
+    containerElement={(<div />)}
+    mapElement={(<div className="map" />)}
+    center={location}
+    location={location}
+    marker={{position: location, onClick: markerClick}}
+    markerClick={markerClick}
+    quests={quests}
   />
 )}
 

@@ -51,9 +51,6 @@ class App extends Component {
     console.log(e)
     this.setState(state => ({ checked: !state.checked }));
   };
-  markerClick1 = (e,index) => {
-    console.log(e,index)
-  }
 
   setErrorMessage = message => {
     this.setState({
