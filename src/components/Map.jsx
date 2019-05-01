@@ -11,18 +11,13 @@ const InnerMap = withGoogleMap( ({location, marker, quests, markerClick}) => (
         {/* <Marker 
             {...marker}
         /> */}
-        {quests.map((quest,index) => {
-          //const markerClick = (q) => console.log("q",q)
-          return(
+        {quests.map((quest,index) => (
             <Marker 
               position={quest.location}
               key={index}
-              onClick={markerClick.bind(this,quest.key)}
+              onClick={markerClick.bind(this, quest)}
             />
           )
-        }
-            
-          
         )}
     </GoogleMap>
 ));

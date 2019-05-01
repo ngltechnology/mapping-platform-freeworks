@@ -4,8 +4,8 @@ import Paper from "@material-ui/core/Paper"
 import Grow from "@material-ui/core/Grow"
 import IconButton from "@material-ui/core/IconButton"
 import Clear from "@material-ui/icons/Clear"
-import SearchForm from "./SearchForm"
-import GeocodeResult from "./GeocodeResult"
+//import SearchForm from "./SearchForm"
+//import GeocodeResult from "./GeocodeResult"
 import Map from "./Map"
 import { currentLocation, getAllQuests } from "../domains/index"
 import '../styles/App.scss';
@@ -23,9 +23,13 @@ class App extends Component {
       },
       checked: false,
       quests: [
-        {"key": 1, "location": {"lat": 35.6671141, "lng": 139.7401657}, "name": "ark hills" },
-        {"key": 2, "location": {"lat": 35.7056396, "lng": 139.7518913}, "name": "tokyo dome" }
+        {"key": "Ei8qnzPeAOLgexP9t1Sq", "location": {"lat": 35.6671141, "lng": 139.7401657}, "name": "ark hills" },
+        {"key": "1ypiZ4bfopN5nxEA7kC8", "location": {"lat": 35.7056396, "lng": 139.7518913}, "name": "tokyo dome" }
       ],
+      quest: {
+        key: "",
+        name: "",
+      },
     }
     currentLocation()
     getAllQuests()
@@ -52,9 +56,15 @@ class App extends Component {
   }
   
   markerClick = quest => {
-    this.setState(state => ({ checked: !state.checked }));
+    this.setState({ checked: true });
     console.log(quest)
+    this.setState({ quest: {key: quest.key,name: quest.name} })
+    console.log("state.quest:",this.state.quest)
+    
   };
+  closeIcon = () => {
+    this.setState({checked: false});
+  }
 
   setErrorMessage = message => {
     this.setState({
@@ -95,9 +105,6 @@ class App extends Component {
     })
     
   }
-  componentWillMount(){
-
-  }
 
   render() {
     
@@ -114,16 +121,13 @@ class App extends Component {
           {...(this.state.checked ? { timeout: 1000 } : {})}
         >
           <Paper className="map-contain">
-            <IconButton className="clear-button" onClick={this.markerClick}>
+            <IconButton className="clear-button" onClick={this.closeIcon}>
               <Clear className="icon-clear" />
             </IconButton>
             
-            <h1>緯度経度検索</h1>
-            <SearchForm onSubmit={place=>this.handlePlaceSubmit(place)}/>
-            <GeocodeResult
-              address={this.state.address}
-              location={this.state.location}
-            />
+            
+            {this.state.quest.name}
+            
           </Paper>  
         </Grow>
       </div>
