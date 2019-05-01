@@ -7,7 +7,7 @@ import Clear from "@material-ui/icons/Clear"
 import SearchForm from "./SearchForm"
 import GeocodeResult from "./GeocodeResult"
 import Map from "./Map"
-import {currentLocation} from "../domains/index"
+import { currentLocation, getAllQuests } from "../domains/index"
 import '../styles/App.scss';
 
 const GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyAOaeuXU_Hlf731vA_BdOoLKwdJ-udINAI'
@@ -28,6 +28,10 @@ class App extends Component {
       ],
     }
     currentLocation()
+    getAllQuests()
+    
+    //quests.map(quest=>console.log("quest:",quest))
+
   }
   currentLocation = () => {
     if(navigator.geolocation){
@@ -47,9 +51,9 @@ class App extends Component {
     }
   }
   
-  markerClick = e => {
-    console.log(e)
+  markerClick = quest => {
     this.setState(state => ({ checked: !state.checked }));
+    console.log(quest)
   };
 
   setErrorMessage = message => {
@@ -90,6 +94,9 @@ class App extends Component {
       this.setErrorMessage("通信エラー")
     })
     
+  }
+  componentWillMount(){
+
   }
 
   render() {
