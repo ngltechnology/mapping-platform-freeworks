@@ -4,18 +4,19 @@ import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
 const InnerMap = withGoogleMap( ({location, marker, quests, markerClick}) => (
     <GoogleMap
-      defaultZoom={16}
+      defaultZoom={13}
       defaultCenter={location}
       center={location}
+      gestureHandling="greedy"
     >
-        <Marker 
+        {/* <Marker 
             {...marker}
-        />
-        {quests.map(quest => (
+        /> */}
+        {quests.map((quest,index) => (
             <Marker 
               position={quest.location}
-              key={quest.key}
-              onClick={markerClick}
+              key={index}
+              onClick={markerClick.bind(this, quest)}
             />
           )
         )}
