@@ -1,26 +1,46 @@
 $background-color: #eee;
 $text-color: #444;
 
+
+
 body{
-  height:100vh;
-  height: 100vw;
+  height:100%;
+  height: 100%;
   text-align: center;
   background-color: $background-color;
   color: $text-color;
 }
 
-.map-contain{
+#root{
+  overflow: hidden;
+}
+.App{
+  overflow: hidden;
+}
+
+.InfoCard{
   position: absolute;
-  height: 30vh;
-  width: 80vw;
-  top: 65vh;
-  left: 10vw;
+  height: 45vh;
+  width: 90vw;
+  top: 50vh;
+  left: 5vw;
   background-color: white;
 }
 .clear-button{
-  position: absolute;
-  top: 5px;
-  right: 5px;
+  position: relative;
+  top: 10px;
+  right: 10px;
+}
+
+.timegrid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow: hidden;
+}
+.gridlist{
+  flex-wrap: nowrap;
+  transform: translateZ(0);
 }
 
 @import 'GeocodeResult';

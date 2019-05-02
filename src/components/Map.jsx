@@ -7,6 +7,7 @@ const InnerMap = withGoogleMap( ({location, marker, quests, markerClick}) => (
       defaultZoom={13}
       defaultCenter={location}
       center={location}
+      gestureHandling="greedy"
     >
         {/* <Marker 
             {...marker}
