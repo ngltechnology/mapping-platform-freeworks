@@ -16,3 +16,4 @@ const card = (state=initialState, action) => {
       return state
   }
 }
+export default card;
