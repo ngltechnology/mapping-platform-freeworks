@@ -11,5 +11,5 @@ const mapDispatchToProps = dispatch => ({
   handleOff: () => dispatch(cardOff()),
 })
 
-const AppContaner = connect({ mapStateToProps, mapDispatchToProps })(App)
-export default AppContaner;
+const AppContainer = connect({ mapStateToProps, mapDispatchToProps })(App)
+export default AppContainer;

@@ -6,7 +6,7 @@ import { composeWithDevTools } from "redux-devtools-extension"
 
 import reducers from "./reducers"
 import './styles/index.scss';
-import AppContaner from './containers/App'
+import AppContainer from './containers/App'
 import * as serviceWorker from './serviceWorker';
 
 
@@ -14,7 +14,7 @@ const store = createStore(reducers,composeWithDevTools())
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppContaner />
+    <AppContainer />
   </Provider>,
   document.getElementById('root')
 );
