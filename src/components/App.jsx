@@ -73,7 +73,7 @@ class App extends Component {
         >
           <Card className="InfoCard">
               <CardHeader avatar={
-                <Avatar>R</Avatar>
+                <Avatar>L</Avatar>
               }
               action={
                 <IconButton onClick={this.closeIcon}>
