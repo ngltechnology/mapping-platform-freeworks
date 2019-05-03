@@ -7,8 +7,8 @@ const mapStateToProps = state => ({
   checked: state.checked
 })
 const mapDispatchToProps = dispatch => ({
-  handleOn: () => (dispatch(cardOn())),
-  handleOff: () => (dispatch(cardOff())),
+  handleOn: () => dispatch(cardOn()),
+  handleOff: () => dispatch(cardOff()),
 })
 
 const AppContaner = connect({ mapStateToProps, mapDispatchToProps })(App)
