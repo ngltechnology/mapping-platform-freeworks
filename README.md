@@ -1,68 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 環境構築
+### node.js
+v11.4.0
+### パッケージのインストール
+'$ npm install'
+package.jsonに記述されたパッケージをまとめてインストール
+'$ yarn install'
+でもいけた
 
-## Available Scripts
+## プロジェクトを始める
+### npm start
+ローカル開発環境でreactを起動する
+[http://localhost:3000](http://localhost:3000)
 
-In the project directory, you can run:
+### npm test
+インタラクティブなテストランナー
 
-### `npm start`
+### npm run build
+buildを行い、deployができるようにする
+'$ yarn build'
+でもいけた
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### npm run eject
+不可逆にパッケージの依存関係をすべてコピーすることができる
+現状使用厳禁
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## 個人用開発環境
+### firebaseの設定
+`$ npm install -g firebase-tools`
+`$ firebase login` 
+'$ firebase init'
+Hostingの列にカーソルを移動させてスペースキーを押して選択し、エンター
+? What do you want to use as your public directory? build
+deployしたいディレクトリはbuildに設定する
+buildと記述しエンター
+Configure as a single-page app (rewrite all urls to /index.html)? NO
+File public/index.html already exists. Overwrite? No
 
-### `npm test`
+### hosting先設定
+[参考](https://firebase.google.com/docs/hosting/multisites?hl=ja)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+'$firebase target:apply hosting target-name resource-name'
+target-nameは自身で定義する名前（何でも良い)
+resource-nameはfirebase consoleから確認できるhostging先の名前
+'例: $firebase target:apply hosting masa masadevelop'
 
-### `npm run build`
+### firebase.jsonを設定する
+```{
+  "hosting": {
+      "target": "target-name",
+      "public": "build"
+      "rewrites": [...]
+  }
+}
+```
+と記述。
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### deploy
+'$ npm run build'
+'$ firebase deploy'
+でデプロイ
