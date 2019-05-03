@@ -15,14 +15,14 @@ class App extends Component {
         <Grow
           in={this.props.checked}
           style={{ transformOrigin: '0 0 0' }}
-          {...(this.state.checked ? { timeout: 1000 } : {})}
+          {...(this.props.checked ? { timeout: 1000 } : {})}
         >
           <Card className="InfoCard">
               <CardHeader avatar={
                 <Avatar>R</Avatar>
               }
               action={
-                <IconButton onClick={()=>this.props.handleOff}>
+                <IconButton onClick={this.props.handleOff}>
                   <Clear/>
                 </IconButton>
               }
