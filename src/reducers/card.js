@@ -6,11 +6,11 @@ const card = (state=initialState, action) => {
   switch(action.type){
     case CARD_ON:
       return Object.assign({},state,{
-        checked: action.checked
+        checked: true,
       })
     case CARD_OFF:
       return Object.assign({},state,{
-        checked: action.checked,
+        checked: false,
       })
     default:
       return state

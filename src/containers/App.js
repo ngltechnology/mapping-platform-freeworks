@@ -4,7 +4,7 @@ import { cardOn, cardOff } from "../actions";
 
 
 const mapStateToProps = state => ({
-  checked: state.checked
+  checked: state.card.checked,
 })
 const mapDispatchToProps = dispatch => ({
   handleOn: () => dispatch(cardOn()),
