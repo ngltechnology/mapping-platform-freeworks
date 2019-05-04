@@ -1,4 +1,3 @@
-import { firestore } from "../firebase"
 
 export const CARD_ON = "CARD_ON"
 export const CARD_OFF = "CARD_OFF"
@@ -14,13 +13,6 @@ export const cardOff = () => ({
   checked: false,
 })
 
-//これcontainerでは？
-export const loadQuests = () => (dispatch => {
-  firestore.collection("quests").where("partner", "===", null).onSnapshot(
-    snapshot => (dispatch(loadQuestsSuccess(snapshot))),
-    error    => (dispatch(loadQuestsError(error)))    
-  )
-})
 
 export const loadQuestsSuccess = snapshot => ({
   type: RECEIVE_QUESTS_SUCCESS,
