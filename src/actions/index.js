@@ -14,6 +14,7 @@ export const cardOff = () => ({
   checked: false,
 })
 
+//これcontainerでは？
 export const loadQuests = () => (dispatch => {
   firestore.collection("quests").where("partner", "===", null).onSnapshot(
     snapshot => (dispatch(loadQuestsSuccess(snapshot))),
