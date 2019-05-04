@@ -6,6 +6,7 @@ import {
   getLocationSuc,
   getLocationErr,
   cardOn,
+  markerClicked
 } from "../actions"
 import { dummyQuests } from "../actions/dummy";
 
@@ -14,10 +15,9 @@ const mapStateToProps = state => ({
   quests: state.quests,
   location: state.location,
 })
+
 const mapDispatchToProps = dispatch => ({
-  handleClick: () => {
-    dispatch(cardOn())
-  },
+  markerClicked: quests => dispatch(cardOn(),markerClicked(quest)),
   receiveQuests: () => (dispatch => {
     firestore.collection("quests").where("partner", "===", null).onSnapshot(
       snapshot => (dispatch(loadQuestsSuccess(snapshot))),
