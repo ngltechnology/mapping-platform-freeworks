@@ -7,7 +7,7 @@ const InnerMap = withGoogleMap(props => (
       defaultCenter={props.location}
       center={props.location}
     >
-      {props.quests.map((quest,index) => (
+      {props => props.quests.map((quest,index) => (
           <Marker 
             position={quest.location}
             key={index}
