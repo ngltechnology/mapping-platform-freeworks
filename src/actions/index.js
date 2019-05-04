@@ -32,7 +32,8 @@ export const getLocationSuc = location => ({
     lat: location.coords.latitude,
     lng: location.coords.longitude,
   },
-  
+  heading: location.coords.heading,
+
 })
 export const getLocationErr = error => ({
   type: CURRENT_LOCATION_ERR,
