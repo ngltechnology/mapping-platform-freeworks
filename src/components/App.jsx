@@ -3,15 +3,18 @@ import { Card, CardHeader, CardActionArea, Avatar, CardContent, CardActions, But
 import Grow from "@material-ui/core/Grow"
 import IconButton from "@material-ui/core/IconButton"
 import Clear from "@material-ui/icons/Clear"
-//import Map from "./Map"
+import Map from "./Map"
 import '../styles/App.scss';
 
 
 class App extends Component {
+  componentWillMount(){
+    this.props.currentLocation()
+  }
   render() {
-    
     return (
       <div className="App">
+        <Map />
         <Grow
           in={this.props.checked}
           style={{ transformOrigin: '0 0 0' }}

@@ -1,44 +1,30 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
-const InnerMap = withGoogleMap( ({location, marker, quests, markerClick}) => (
+const InnerMap = withGoogleMap(props => (
     <GoogleMap
       defaultZoom={13}
-      defaultCenter={location}
-      center={location}
-      gestureHandling="greedy"
+      defaultCenter={this.props.location}
+      center={this.props.location}
     >
-        {/* <Marker 
-            {...marker}
-        /> */}
-        {quests.map((quest,index) => (
-            <Marker 
-              position={quest.location}
-              key={index}
-              onClick={markerClick.bind(this, quest)}
-            />
-          )
-        )}
+      {this.props.quests.map((quest,index) => (
+          <Marker 
+            position={quest.location}
+            key={index}
+            onClick={this.props.markerClicked(quest)}
+          />
+        )
+      )}
     </GoogleMap>
 ));
   
-const Map = ({location,markerClick,quests}) => {
+const Map = () => {
   return (
   <InnerMap
     containerElement={(<div />)}
     mapElement={(<div className="map" />)}
-    center={location} //いらないかもこれ
-    location={location}
-    marker={{position: location, onClick: markerClick}}
-    markerClick={markerClick}
-    quests={quests}
   />
 )}
-
-Map.propTypes = {
-  location: PropTypes.objectOf(PropTypes.number).isRequired,
-}
 
 
 export default Map;
