@@ -28,7 +28,7 @@ const Map = ({location,markerClick,quests}) => {
   <InnerMap
     containerElement={(<div />)}
     mapElement={(<div className="map" />)}
-    center={location}
+    center={location} //いらないかもこれ
     location={location}
     marker={{position: location, onClick: markerClick}}
     markerClick={markerClick}
