@@ -1,7 +1,12 @@
 import { connect } from "react-redux"
 import { firestore } from "../firebase"
-import { loadQuestsSuccess, loadQuestsError } from "../actions"
-import { getLocationSuc, getLocationErr } from "../actions"
+import {
+  loadQuestsSuccess,
+  loadQuestsError,
+  getLocationSuc,
+  getLocationErr,
+  cardOn,
+} from "../actions"
 import { dummyQuests } from "../actions/dummy";
 
 
@@ -10,6 +15,9 @@ const mapStateToProps = state => ({
   location: state.location,
 })
 const mapDispatchToProps = dispatch => ({
+  handleClick: () => {
+    dispatch(cardOn())
+  },
   receiveQuests: () => (dispatch => {
     firestore.collection("quests").where("partner", "===", null).onSnapshot(
       snapshot => (dispatch(loadQuestsSuccess(snapshot))),
@@ -23,7 +31,7 @@ const mapDispatchToProps = dispatch => ({
         position => dispatch(getLocationSuc(position)),
         error => dispatch(getLocationErr(error))
       )
-    }else{
+    } else {
       console.log("Geolocation is offline")
       return null;
     }
