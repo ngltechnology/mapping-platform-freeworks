@@ -30,3 +30,4 @@ export const loadQuestsError = error => ({
   type: RECEIVE_QUESTS_ERROR,
   error,
 })
+
