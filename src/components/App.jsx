@@ -3,8 +3,8 @@ import { Card, CardHeader, CardActionArea, Avatar, CardContent, CardActions, But
 import Grow from "@material-ui/core/Grow"
 import IconButton from "@material-ui/core/IconButton"
 import Clear from "@material-ui/icons/Clear"
-import Map from "./Map"
 import '../styles/App.scss';
+import MapContainer from '../containers/Map';
 
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Map />
+        <MapContainer />
         <Grow
           in={this.props.checked}
           style={{ transformOrigin: '0 0 0' }}
