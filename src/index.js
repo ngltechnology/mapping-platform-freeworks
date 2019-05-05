@@ -4,25 +4,40 @@ import { createStore, applyMiddleware } from "redux"
 import { Provider } from "react-redux"
 import { composeWithDevTools } from "redux-devtools-extension"
 import { createLogger } from 'redux-logger'
+import { createBrowserHistory } from "history"
+import { routerMiddleware, ConnectedRouter } from 'connected-react-router'
+import { Switch, Route } from "react-router"
 
-import reducers from "./reducers"
+import rootReducers from "./reducers"
 import './styles/index.scss';
 import AppContainer from './containers/App'
 import * as serviceWorker from './serviceWorker';
 
+
+const history = createBrowserHistory()
 
 const logger = createLogger({
   collapsed: true,
   diff: true,
 })
 
-const store = createStore(reducers,composeWithDevTools(
-  applyMiddleware(logger)
-))
+const store = createStore(
+  rootReducers(history),
+  composeWithDevTools(
+    applyMiddleware(
+      logger,
+      routerMiddleware(history),
+    )
+  )
+)
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppContainer />
+    <ConnectedRouter history={history}>
+      <Switch>
+        <Route exact path="/" component={AppContainer} />
+      </Switch>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
 );
