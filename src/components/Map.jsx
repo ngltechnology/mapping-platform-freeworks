@@ -4,7 +4,6 @@ import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 import "../styles/Map.scss"
 
 const InnerMap = withGoogleMap(({quests,location,markerClicked}) => {
-  console.log("quests:",quests)
   return(
     <GoogleMap
       defaultZoom={13}
