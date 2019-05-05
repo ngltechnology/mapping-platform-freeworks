@@ -10,12 +10,10 @@ import { dummyQuests } from "../actions/dummy";
 import Map from '../components/Map'
 
 
-const mapStateToProps = state => {
-  console.log(state.dummy)
-  return{
+const mapStateToProps = state => ({
   quests: state.dummy,
   location: state.getLocation.location,
-}}
+})
 
 const mapDispatchToProps = dispatch => ({
   markerClicked: quest => dispatch(cardOn(),markerClicked(quest)),
