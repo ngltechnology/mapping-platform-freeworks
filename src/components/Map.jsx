@@ -1,30 +1,33 @@
 import React from "react"
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
-const InnerMap = withGoogleMap(props => (
+const InnerMap = withGoogleMap((quests,location,markerClicked) => (
     <GoogleMap
       defaultZoom={13}
-      defaultCenter={props.location}
-      center={props.location}
+      defaultCenter={location}
+      center={location}
     >
-      {props => props.quests.map((quest,index) => (
+      {(quests)=>{
+        console.log("marker create method!")
+        return(quests.map((quest,index) => (
           <Marker 
             position={quest.location}
             key={index}
-            onClick={props.markerClicked(quest)}
+            onClick={markerClicked(quest)}
           />
         )
-      )}
+      ))}}
     </GoogleMap>
 ));
   
-const Map = () => {
+const Map = (props) => {
   return (
   <InnerMap
     containerElement={(<div />)}
     mapElement={(<div className="map" />)}
+    quests={props.quests}
+    location={props.location}
+    markerClicked={props.markerClicked}
   />
 )}
-
-
 export default Map;
