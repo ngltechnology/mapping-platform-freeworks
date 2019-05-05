@@ -14,6 +14,8 @@
     "axios": "^0.18.0",
     "connected-react-router": "^6.4.0",
     "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-redux": "^3.0.1",
     "firebase": "^5.11.1",
     "firebase-tools": "^6.8.0",
     "history": "^4.9.0",
