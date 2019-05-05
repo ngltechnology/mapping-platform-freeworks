@@ -10,12 +10,8 @@
     "@types/googlemaps": "^3.0.0",
     "@types/markerclustererplus": "^2.1.29",
     "@types/react": "^15.0.0",
-    "@typescript-eslint/eslint-plugin": "^1.7.1-alpha.19",
     "axios": "^0.18.0",
     "connected-react-router": "^6.4.0",
-    "eslint": "^5.16.0",
-    "eslint-plugin-react": "^7.13.0",
-    "eslint-plugin-react-redux": "^3.0.1",
     "firebase": "^5.11.1",
     "firebase-tools": "^6.8.0",
     "history": "^4.9.0",
@@ -28,8 +24,6 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
     "redux": "^4.0.1",
-    "redux-devtools-extension": "^2.13.8",
-    "redux-logger": "^3.0.6",
     "typescript": "^3.4.5"
   },
   "scripts": {
@@ -53,5 +47,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "redux-logger": "^3.0.6",
+    "@typescript-eslint/eslint-plugin": "^1.7.1-alpha.19",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-redux": "^3.0.1",
+    "redux-devtools-extension": "^2.13.8"
   }
 }
