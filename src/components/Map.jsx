@@ -22,7 +22,7 @@ const InnerMap = withGoogleMap(({quests,location,markerClicked}) => {
     </GoogleMap>
 )});
   
-const Map = (props) => (
+const Map = props => (
   <InnerMap
     containerElement={(<div className="map" />)}
     mapElement={(<div className="map" />)}

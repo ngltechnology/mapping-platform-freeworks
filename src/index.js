@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from "redux"
+import { createStore, applyMiddleware } from "redux"
 import { Provider } from "react-redux"
 import { composeWithDevTools } from "redux-devtools-extension"
+import { createLogger } from 'redux-logger'
 
 import reducers from "./reducers"
 import './styles/index.scss';
@@ -10,7 +11,14 @@ import AppContainer from './containers/App'
 import * as serviceWorker from './serviceWorker';
 
 
-const store = createStore(reducers,composeWithDevTools())
+const logger = createLogger({
+  collapsed: true,
+  diff: true,
+})
+
+const store = createStore(reducers,composeWithDevTools(
+  applyMiddleware(logger)
+))
 
 ReactDOM.render(
   <Provider store={store}>
