@@ -3,7 +3,7 @@ import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
 import "../styles/Map.scss"
 
-const InnerMap = withGoogleMap(({quests,location,markerClicked}) => {
+const InnerMap = withGoogleMap(({quests,location,markerClicked,cardOn}) => {
   return(
     <GoogleMap
       defaultZoom={13}
@@ -14,7 +14,7 @@ const InnerMap = withGoogleMap(({quests,location,markerClicked}) => {
           <Marker 
             position={quest.location}
             key={index}
-            onClick={markerClicked(quest)}
+            onClick={quest => {markerClicked(quest);cardOn();}}
           />
         )
       )}
@@ -28,6 +28,7 @@ const Map = props => (
     quests={props.quests}
     location={props.location}
     markerClicked={props.markerClicked}
+    cardOn={props.cardOn}
   />
 )
 export default Map;

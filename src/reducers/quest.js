@@ -6,7 +6,7 @@ const quest = (state=null, action) => {
       return Object.assign({},{
         key: action.quest.key,
         name: action.quest.name,
-        photoURL: action.name.photoURL,
+        photoURL: action.quest.photoURL,
         reward: action.quest.reward,
       })
     default:
