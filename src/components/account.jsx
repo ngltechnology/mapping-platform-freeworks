@@ -7,6 +7,10 @@ const Styles = {
     width: "100vw",
     height: "50vh",
   },
+  leftAvatar: {
+    left: "5vw",
+    top: "20vh",
+  },
   avatar: {
     margin:"auto",
     top: "20vh",
@@ -22,6 +26,7 @@ const Account = props => {
   return(
     <React.Fragment>
       <div className={classes.header}>
+        <Avatar className={classes.leftAvatar}>D</Avatar>
         <Avatar src={dummyurl} className={classes.avatar} />
       </div>
       
