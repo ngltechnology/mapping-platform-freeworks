@@ -14,7 +14,7 @@ const InnerMap = withGoogleMap(({quests,location,markerClicked,cardOn}) => {
           <Marker 
             position={quest.location}
             key={index}
-            onClick={e => {markerClicked(e);cardOn();console.log(quest);}}
+            onClick={markerClicked.bind(this, quest)}
           />
         )
       )}
