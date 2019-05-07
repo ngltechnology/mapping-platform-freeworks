@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardHeader, CardActionArea, Avatar, CardContent, CardActions, Button, Typography } from "@material-ui/core"
+import { Card, CardHeader, CardActionArea, Avatar, CardContent, CardActions, Button, Typography, CardMedia } from "@material-ui/core"
 import Grow from "@material-ui/core/Grow"
 import IconButton from "@material-ui/core/IconButton"
 import Link from "@material-ui/core/Link"
@@ -42,10 +42,14 @@ class App extends Component {
                   <Clear/>
                 </IconButton>
               }
-              title="{this.state.quest.name}"
-              subheader="subheader"
+              title={this.props.name}
+              subheader={this.props.rewards}
               />
             <CardActionArea>
+              <CardMedia
+                image={this.props.photoURL}
+                style={{height: "15vh"}}
+              />
               <CardContent>
               <Typography component="p">
                 Time List

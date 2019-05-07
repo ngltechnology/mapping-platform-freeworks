@@ -24,7 +24,6 @@ const mapDispatchToProps = dispatch => ({
       dispatch(markerClicked(quest))
     )
   },
-  // cardOn: () => dispatch(cardOn()),
   receiveQuests: () => (dispatch => {
     firestore.collection("quests").where("partner", "===", null).onSnapshot(
       snapshot => (dispatch(loadQuestsSuccess(snapshot))),
