@@ -17,55 +17,53 @@ import IconButton from "@material-ui/core/IconButton"
 import {cardOff} from "../actions"
 
 
-const GrowCard = props => {
-  console.log(props)
-  return(
-    <React.Fragment>
-    <Grow
-      in={props.checked}
-      style={{ transformOrigin: '0 0 0' }}
-      {...(props.checked ? { timeout: 1000 } : {})}
-    >
-      <Card className="InfoCard">
-          <CardHeader avatar={
-            <IconButton className="shopAvatar">
-              <Avatar>L</Avatar>
-            </IconButton>
-          }
-          action={
-            <IconButton onClick={props.handleOff}>
-              <Clear/>
-            </IconButton>
-          }
-          title={props.name}
-          subheader={props.rewards}
-          />
-        <CardActionArea>
-          <CardMedia
-            image={props.photoURL}
-            style={{height: "15vh"}}
-          />
-          <CardContent>
-          <Typography component="p">
-            Time List
-          </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          
-          <Button size="small" color="primary">
-            時間を選ぶ
-          </Button>
-          <Button size="small" color="primary">
-            キャンセル
-          </Button>
-        </CardActions>
+const GrowCard = props => (
+  <React.Fragment>
+  <Grow
+    in={props.checked}
+    style={{ transformOrigin: '0 0 0' }}
+    {...(props.checked ? { timeout: 1000 } : {})}
+  >
+    <Card className="InfoCard">
+        <CardHeader avatar={
+          <IconButton className="shopAvatar">
+            <Avatar>L</Avatar>
+          </IconButton>
+        }
+        action={
+          <IconButton onClick={props.handleOff}>
+            <Clear/>
+          </IconButton>
+        }
+        title={props.name}
+        subheader={props.rewards}
+        />
+      <CardActionArea>
+        <CardMedia
+          image={props.photoURL}
+          style={{height: "15vh"}}
+        />
+        <CardContent>
+        <Typography component="p">
+          Time List
+        </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
         
-      </Card>  
-    </Grow>
-    </React.Fragment>
-  )
-}
+        <Button size="small" color="primary">
+          時間を選ぶ
+        </Button>
+        <Button size="small" color="primary">
+          キャンセル
+        </Button>
+      </CardActions>
+      
+    </Card>  
+  </Grow>
+  </React.Fragment>
+)
+
 
 const mapStateToProps = state => ({
 	checked: state.card.checked,
