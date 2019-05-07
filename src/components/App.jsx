@@ -8,6 +8,8 @@ import '../styles/App.scss';
 import MapContainer from '../containers/Map';
 import GrowCard from "./Card"
 
+import UserInfoContainer from '../containers/UserInfoContainer'
+import AuthContainer from '../containers/AuthContainer'
 
 class App extends Component {
   componentDidMount(){
@@ -16,6 +18,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div>
+          { this.props.uid ? <UserInfoContainer /> : <AuthContainer /> }
+        </div>
         <MapContainer />
 
         <div className="avatarContain">

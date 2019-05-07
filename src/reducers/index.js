@@ -6,6 +6,7 @@ import card from "./card"
 import dummy from "./dummy"
 import quest from "./quest"
 import getLocation from "./getLocation"
+import auth from "./auth"
 
 export default history => combineReducers({
   router: connectRouter(history),
@@ -14,4 +15,5 @@ export default history => combineReducers({
   // quests,
   dummy,
   getLocation,
+  auth,
 })

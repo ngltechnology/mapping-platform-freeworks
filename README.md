@@ -34,8 +34,8 @@ Hostingの列にカーソルを移動させてスペースキーを押して選�
 deployしたいディレクトリはbuildに設定する  
 buildと記述しエンター  
 他の項目は以下の通りで良いはず  
-`Configure as a single-page app (rewrite all urls to /index.html)? NO`
-`File public/index.html already exists. Overwrite? No`
+`Configure as a single-page app (rewrite all urls to /index.html)? NO`  
+`File public/index.html already exists. Overwrite? No`  
 
 ### hosting先設定
 [参考](https://firebase.google.com/docs/hosting/multisites?hl=ja)
