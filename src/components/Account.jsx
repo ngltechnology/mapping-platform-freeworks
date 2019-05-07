@@ -15,7 +15,6 @@ const styles = {
     padding: "0"
   },
   leftAvatar: {
-    backgroundColor: "orange",
     width: "20vw",
     height: "20vw",
   },
@@ -51,7 +50,7 @@ const Account = props => {
     <React.Fragment>
       <div className={classes.header}>
         <IconButton className={classes.leftButton}>
-          <Avatar className={classes.leftAvatar}>L</Avatar>
+          <Avatar className={classes.leftAvatar} src="../images/account/graph.png" />
         </IconButton>
         <IconButton className={classes.centerButton}>
           <Avatar className={classes.centerAvatar} src={dummyurl} />
