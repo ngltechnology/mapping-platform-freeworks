@@ -17,13 +17,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 
-  markerClicked: quest => {
-    console.log(quest)
-    return(
-      dispatch(cardOn()),
-      dispatch(markerClicked(quest))
-    )
-  },
+  markerClicked: quest => (
+    dispatch(cardOn()),
+    dispatch(markerClicked(quest))
+  )
+  ,
   receiveQuests: () => (dispatch => {
     firestore.collection("quests").where("partner", "===", null).onSnapshot(
       snapshot => (dispatch(loadQuestsSuccess(snapshot))),
