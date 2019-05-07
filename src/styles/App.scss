@@ -17,6 +17,15 @@ body{
 .App{
   overflow: hidden;
 }
+.avatarContain{
+  position: fixed;
+  top: 5vw;
+  right: 5vw;
+}
+// .avatar{
+//   width:60px;
+//   height: 60px;
+// }
 
 .InfoCard{
   position: absolute;
@@ -43,4 +52,4 @@ body{
   transform: translateZ(0);
 }
 
-@import 'Map';
+

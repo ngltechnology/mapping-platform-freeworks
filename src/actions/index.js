@@ -4,7 +4,7 @@ export const RECEIVE_QUESTS_SUCCESS = "RECEIVE_QUESTS_SUCCESS"
 export const RECEIVE_QUESTS_ERROR = "RECEIVE_QUESTS_ERROR"
 export const CURRENT_LOCATION_SUC = "CURRENT_LOCATION_SUC"
 export const CURRENT_LOCATION_ERR = "CURRENT_LOCATION_ERR"
-export const CLICKED_MARKER = "CLICKED_MARKER"
+export const MARKER_CLICKED = "MARKER_CLICKED"
 
 export const cardOn = () => ({
   type: CARD_ON,
@@ -38,7 +38,7 @@ export const getLocationErr = error => ({
   type: CURRENT_LOCATION_ERR,
   error,
 })
-export const markerClick = quest => ({
-  type: CLICKED_MARKER,
+export const markerClicked = quest => ({
+  type: MARKER_CLICKED,
   quest,
 })

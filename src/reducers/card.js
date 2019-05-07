@@ -1,6 +1,6 @@
 import { CARD_ON, CARD_OFF } from "../actions"
 
-const initialState = { checked: true }
+const initialState = { checked: false }
 
 const card = (state=initialState, action) => {
   switch(action.type){
