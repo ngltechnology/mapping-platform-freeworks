@@ -8,6 +8,7 @@ const mapStateToProps = state => ({
   name: state.quest.name,
   rewards: state.quest.reward,
   photoURL: state.quest.photoURL,
+  uid: state.auth.uid,
 })
 const mapDispatchToProps = dispatch => ({
   handleOn: () => dispatch(cardOn()),

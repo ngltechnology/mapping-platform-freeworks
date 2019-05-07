@@ -11,7 +11,6 @@ import { Switch, Route } from "react-router-dom"
 import rootReducers from "./reducers"
 import './styles/index.scss';
 import AppContainer from './containers/App'
-import AccountContainer from "./containers/Account"
 import * as serviceWorker from './serviceWorker';
 
 
@@ -37,7 +36,6 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <Switch>
         <Route exact path="/" component={AppContainer} />
-        <Route path="/account" component={AccountContainer} />
       </Switch>
     </ConnectedRouter>
   </Provider>,
