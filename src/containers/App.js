@@ -1,17 +1,13 @@
 import { connect } from "react-redux"
 import App from "../components/App"
-import { cardOn, cardOff, getLocationSuc, getLocationErr } from "../actions";
+import { cardOn, getLocationSuc, getLocationErr } from "../actions";
 
 
 const mapStateToProps = state => ({
   checked: state.card.checked,
-  name: state.quest.name,
-  rewards: state.quest.reward,
-  photoURL: state.quest.photoURL,
 })
 const mapDispatchToProps = dispatch => ({
   handleOn: () => dispatch(cardOn()),
-  handleOff: () => dispatch(cardOff()),
   currentLocation: () => {
     if( navigator.geolocation ) {
       navigator.geolocation.getCurrentPosition(
