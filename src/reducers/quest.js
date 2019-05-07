@@ -1,6 +1,13 @@
 import { MARKER_CLICKED } from "../actions"
 
-const quest = (state=null, action) => {
+const initialState = {
+  key: null,
+  name: "情報を取得できませんでした",
+  photoURL: "url not found",
+  reward: null,
+}
+
+const quest = (state=initialState, action) => {
   switch (action.type) {
     case MARKER_CLICKED:
       return Object.assign({},{
@@ -10,12 +17,7 @@ const quest = (state=null, action) => {
         reward: action.quest.reward,
       })
     default:
-      return Object.assign({},{
-        key: null,
-        name: "情報を取得できませんでした",
-        photoURL: "",
-        reward: null,
-      })
+      return state;
   }
 }
 export default quest;
