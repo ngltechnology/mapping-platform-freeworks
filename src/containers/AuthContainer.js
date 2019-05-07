@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     doLogin: () => {
       let provider = new firebase.auth.GoogleAuthProvider()
-      firebase.auth().signInWithPopup(provider)
+      firebase.auth().signInWithRedirect(provider)
     },
     refLogin: () => {
       firebase.auth().onAuthStateChanged(user => {
