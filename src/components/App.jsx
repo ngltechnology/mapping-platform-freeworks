@@ -5,7 +5,7 @@ import Link from "@material-ui/core/Link"
 import { Link as RouterLink } from "react-router-dom"
 
 import '../styles/App.scss';
-import MapContainer from '../containers/Map';
+import MapContainer from '../containers/MapContainer';
 import GrowCard from "./Card"
 
 import UserInfoContainer from '../containers/UserInfoContainer'
