@@ -14,6 +14,7 @@ import AuthContainer from '../containers/AuthContainer'
 class App extends Component {
   componentDidMount(){
     this.props.currentLocation()
+    this.props.receiveQuests()
   }
   render() {
     return (

@@ -1,11 +1,5 @@
 import { connect } from "react-redux"
-import { firestore } from "../firebase"
-import {
-  loadQuestsSuccess,
-  loadQuestsError,
-  cardOn,
-  markerClicked
-} from "../actions"
+import { cardOn, markerClicked } from "../actions"
 import { dummyQuests } from "../actions/dummy";
 import Map from '../components/Map'
 
@@ -20,16 +14,8 @@ const mapDispatchToProps = dispatch => ({
     // eslint-disable-next-line
     dispatch(cardOn()),
     dispatch(markerClicked(quest))
-  )
-  ,
-  receiveQuests: () => (dispatch => {
-    firestore.collection("quests").where("partner", "===", null).onSnapshot(
-      snapshot => (dispatch(loadQuestsSuccess(snapshot))),
-      error    => (dispatch(loadQuestsError(error)))
-    )
-  }),
+  ),
   receiveDummy: () => dispatch(dummyQuests()),
-  
 })
 const MapContainer = connect(mapStateToProps, mapDispatchToProps)(Map)
 export default MapContainer;
