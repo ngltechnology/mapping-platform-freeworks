@@ -12,9 +12,9 @@ import UserInfoContainer from '../containers/UserInfoContainer'
 import AuthContainer from '../containers/AuthContainer'
 
 class App extends Component {
+  
   componentDidMount(){
     this.props.currentLocation()
-    this.props.receiveQuests()
   }
   render() {
     return (
@@ -23,7 +23,6 @@ class App extends Component {
           { this.props.uid ? <UserInfoContainer /> : <AuthContainer /> }
         </div>
         <MapContainer />
-
         <div className="avatarContain">
           <Link component={RouterLink} to="/account">
             <IconButton className="avatar">

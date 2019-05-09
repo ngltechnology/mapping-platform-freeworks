@@ -25,12 +25,19 @@ const mapDispatchToProps = dispatch => ({
       return null;
     }
   },
-  receiveQuests: () => (dispatch => {
-    firestore.collection("quests").where("partner", "===", "").onSnapshot(
-      snapshot => (dispatch(loadQuestsSuccess(snapshot))),
-      error    => (dispatch(loadQuestsError(error)))
+  receiveQuests: () => (
+    firestore.collection("quests").onSnapshot(
+      querySnapshot => {
+        var cities = []
+        querySnapshot.forEach(snapshot => {
+          cities.push(snapshot.data())
+          console.log(cities)
+          dispatch(loadQuestsSuccess(cities))
+        })
+      },
+      error    => dispatch(loadQuestsError(error))
     )
-  })
+  )
 })
 
 const AppContainer = connect( mapStateToProps, mapDispatchToProps )(App)
