@@ -8,7 +8,7 @@ const quests = (state=initialState, action) => {
   console.log("snapshot::",action.snapshot)
   switch( action.type ) {
     case RECEIVE_QUESTS_SUCCESS:
-      return Object.assign({},{
+      return Object.assign({},state,{
         quests: action.snapshot,
       })
     case RECEIVE_QUESTS_ERROR:

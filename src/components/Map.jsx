@@ -1,23 +1,36 @@
 import React from "react"
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
+import { firestore } from "../firebase"
 import "../styles/Map.scss"
 
-const InnerMap = withGoogleMap(({quests,location,markerClicked}) => {
+const InnerMap = withGoogleMap(({location,markerClicked}) => {
   return(
     <GoogleMap
       defaultZoom={15}
       defaultCenter={location}
       center={location}
     >
-      {quests.map((quest,index) => (
-          <Marker 
-            position={quest.location}
-            key={index}
-            onClick={markerClicked.bind(this, quest)}
-          />
-        )
-      )}
+      {firestore.collection("quests").where("partner", "==", "").get()
+          .then(quertSnaphsot => {
+            var quests = []
+            quertSnaphsot.forEach(doc => {
+              quests.push({
+                id: doc.id,
+                ...doc.data()
+              })
+              console.log("quests:",quests)
+              return (
+                quests.map(quest => (
+                  <Marker 
+                    position={quest.location}
+                    key={quest.key}
+                    onClick={markerClicked.bind(this, quest)}
+                  />
+                ))
+              )
+            })
+        })}
     </GoogleMap>
 )});
   
