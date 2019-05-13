@@ -16,7 +16,7 @@ const InnerMap = withGoogleMap(({quests,location,markerClicked,actionFirestore})
             key={quest.key}
             onClick={markerClicked.bind(this, quest)}
           />
-        )) : actionFirestore
+        )) : actionFirestore()
       } 
     </GoogleMap>
 )});
