@@ -4,22 +4,21 @@ import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 import "../styles/Map.scss"
 
 const InnerMap = withGoogleMap(({quests,location,markerClicked,actionFirestore}) => {
-  return(
+  console.log("innermap quests:",Array.isArray(quests),quests)
+  return (
     <GoogleMap
       defaultZoom={15}
       defaultCenter={location}
       center={location}
     >
-      { quests instanceof Object 
-          ? quests.map(quest => {
-            console.log("quest:",quest)
-            return( 
+      { quests instanceof Object
+          ? quests.map(quest => ( 
               <Marker 
                 position={quest.location}
                 key={quest.key}
                 onClick={markerClicked.bind(this, quest)}
               />
-            )}) 
+            )) 
           : actionFirestore()
       } 
     </GoogleMap>

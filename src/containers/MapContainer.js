@@ -10,7 +10,7 @@ import Map from '../components/Map'
 import { firestore } from "../firebase"
 
 const mapStateToProps = state => ({
-  quests: state.dummy,
+  quests: state.quests.quests,
   location: state.getLocation.location,
 })
 
@@ -25,13 +25,13 @@ const mapDispatchToProps = dispatch => ({
   actionFirestore: () => {
     firestore.collection("quests").where("partner", "==", "").get()
       .then(querySnapshot => {
-        var quests = []
-        querySnapshot.forEach(docs => { 
-          quests.push({
+        var snapshots = []
+        querySnapshot.forEach(docs => {
+          snapshots.push({
             key: docs.id,
             ...docs.data()
           })
-          return dispatch(loadQuestsSuccess(quests))
+          return dispatch(loadQuestsSuccess(snapshots))
         })}
       )
       .catch(error => dispatch(loadQuestsError(error)))
