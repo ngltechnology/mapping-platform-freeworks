@@ -12,13 +12,15 @@ const InnerMap = withGoogleMap(({quests,location,markerClicked,actionFirestore})
       center={location}
     >
       { quests instanceof Object
-          ? quests.map(quest => ( 
+          ? quests.map((quest,index) => {
+            console.log("marker quest:",quest)
+            return( 
               <Marker 
                 position={quest.location}
-                key={quest.key}
+                key={index}
                 onClick={markerClicked.bind(this, quest)}
               />
-            )) 
+            )}) 
           : actionFirestore()
       } 
     </GoogleMap>
