@@ -1,7 +1,7 @@
 import { RECEIVE_QUESTS_SUCCESS, RECEIVE_QUESTS_ERROR } from "../actions/index.js"
 
-const quests = (state=null, action) => {
-  console.log("snapshot::",action.snapshot)
+const quests = (state=[], action) => {
+  console.log("snapshot:",action.snapshot,quests instanceof Object)
   switch( action.type ) {
     case RECEIVE_QUESTS_SUCCESS:
       return Object.assign({},{
