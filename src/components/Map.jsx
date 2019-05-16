@@ -13,7 +13,10 @@ class Map extends React.Component{
     const { locate_user } = this.props
     locate_user()
   }
-  markerClick = quest => this.props.selectMarker(quest)
+  componentDidMount(){
+    this.props.actionFirestore()
+    console.log("action!")
+  }
   render(){
     const { on_viewport_change, map, quests } = this.props
     return (
@@ -42,7 +45,7 @@ class Map extends React.Component{
                   <Pin size={20} /> 
                 </Marker>
               )) 
-              : this.props.actionFirestore() }  
+              : console.log("map is not object") }  
       </ReactMapGL>
       </div>
     )
