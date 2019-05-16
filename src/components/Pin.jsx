@@ -18,7 +18,7 @@ export default class Pin extends PureComponent {
     const {
       quest,
       size = 20,
-      color = "#d00"
+      
     } = this.props;
     const style = {
       backgroundColor: "transparent",
@@ -42,7 +42,7 @@ export default class Pin extends PureComponent {
             height={size}
             viewBox="0 0 24 24"
             style={{
-              fill: color,
+              fill: quest.color,
               stroke: "none"
             }}
           >
