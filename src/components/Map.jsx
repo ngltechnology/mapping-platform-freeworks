@@ -41,7 +41,7 @@ class Map extends React.Component{
                   key={quest.key}
                   quest={quest}
                   color="#0000ff"
-                  markerClick={markerClicked}
+                  markerClicked={markerClicked}
                 />))
               : console.log("quests is not object") }  
       </ReactMapGL>

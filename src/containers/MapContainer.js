@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import { locate_user, on_viewport_change } from "../actions/UserMapActions.js"
 import { firestore } from "../firebase"
-import { loadQuestsSuccess, markerClicked } from "../actions"
+import { loadQuestsSuccess, markerClicked, cardOn } from "../actions"
 import Map from '../components/Map'
 
 const mapStateToProps = state => ({
