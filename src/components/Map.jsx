@@ -13,17 +13,16 @@ class Map extends React.Component{
     const { locate_user } = this.props
     locate_user()
   }
+  markerClick = quest => this.props.selectMarker(quest)
   render(){
-    const { on_viewport_change, map } = this.props
-
-    console.log(map.viewport)
+    const { on_viewport_change, map, quests } = this.props
     return (
       <div>
         <Button
           variant="contained"
           onClick={this.handleClick}
         >
-          現在地を取得
+          現在地
         </Button>
         <ReactMapGL
           style={{textAlign:"left"}}
@@ -32,12 +31,13 @@ class Map extends React.Component{
           onViewportChange={viewport=>on_viewport_change({viewport})}
           mapboxApiAccessToken={MAPBOX_TOKEN}
         >
-          {this.props.quests instanceof Object 
-              ? this.props.quests.map(quest => (
+          {quests instanceof Object 
+              ? quests.map(quest => (
                 <Marker
                   key={quest.key}
                   latitude={quest.location.lat}
                   longitude={quest.location.lng}
+                  
                 >
                   <Pin size={20} /> 
                 </Marker>
