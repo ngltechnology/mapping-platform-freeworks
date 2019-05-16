@@ -17,7 +17,7 @@ export default class Pin extends PureComponent {
   render() {
     const {
       quest,
-      size = 20,
+      size = 30,
       
     } = this.props;
     const style = {

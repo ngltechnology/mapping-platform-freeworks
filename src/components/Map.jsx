@@ -12,10 +12,8 @@ class Map extends React.Component{
   componentDidMount(){
     this.props.actionFirestore()
     this.props.locate_user()
-    console.log("componentDidMount")
   }
   render(){
-    console.log("render!!")
     const { on_viewport_change, map, quests, markerClicked } = this.props
     return (
       <div>
@@ -26,15 +24,15 @@ class Map extends React.Component{
           onViewportChange={viewport=>on_viewport_change({viewport})}
           mapboxApiAccessToken={MAPBOX_TOKEN}
         >
-          {quests instanceof Object 
-              ? quests.map(quest => (
-                <Pin
-                  key={quest.key}
-                  quest={quest}
-                  markerClicked={markerClicked}
-                />))
-              : console.log("quests is not object") }  
-      </ReactMapGL>
+        {quests instanceof Object 
+          ? quests.map(quest => (
+            <Pin
+              key={quest.key}
+              quest={quest}
+              markerClicked={markerClicked}
+            />))
+          : console.log("quests is not object") }  
+        </ReactMapGL>
       </div>
     )
   }

@@ -38,8 +38,8 @@ const mapDispatchToProps = dispatch => ({
             key: docs.id,
             ...docs.data()
           })
-          return dispatch(loadQuestsSuccess(snapshot))
         })
+        return dispatch(loadQuestsSuccess(snapshot))
       })
       .catch(error => console.log(error.message))
   }
