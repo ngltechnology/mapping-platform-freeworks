@@ -13,9 +13,9 @@ class Map extends React.Component{
     const { locate_user } = this.props
     locate_user()
   }
-
   render(){
-    const { locate_user, on_viewport_change, map } = this.props
+    const { on_viewport_change, map } = this.props
+
     console.log(map.viewport)
     return (
       <div>
@@ -32,11 +32,17 @@ class Map extends React.Component{
           onViewportChange={viewport=>on_viewport_change({viewport})}
           mapboxApiAccessToken={MAPBOX_TOKEN}
         >
-        <Marker
-          {...map.marker}
-        >
-          <Pin size={20} />
-        </Marker>  
+          {this.props.quests instanceof Object 
+              ? this.props.quests.map(quest => (
+                <Marker
+                  key={quest.key}
+                  latitude={quest.location.lat}
+                  longitude={quest.location.lng}
+                >
+                  <Pin size={20} /> 
+                </Marker>
+              )) 
+              : this.props.actionFirestore() }  
       </ReactMapGL>
       </div>
     )

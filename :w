@@ -5,26 +5,15 @@ import { loadQuestsSuccess } from "../actions"
 import Map from '../components/Map'
 
 const mapStateToProps = state => ({
-  state: state,
+  state: state
   map: state.map,
   quests: state.quests.quests
 })
-const mapDispatchToProps = dispatch => ({
-  locate_user: () => {
-    if( navigator.geolocation ) {
-      navigator.geolocation.getCurrentPosition(
-        position => dispatch(locate_user(position)),
-        error => console.log(error.message)
-      )
-    } else {
-      console.log("Geolocation is offline")
-      return null;
-    }
-  }, 
-  on_viewport_change: viewport => {
-    dispatch(on_viewport_change(viewport))
-  },
-  actionFirestore: () => {
+
+export default connect(mapStateToProps, {
+  locate_user,
+  on_viewport_change,
+  actionFirestore: dispatch => {
     firestore.collection("quests").where("partner", "==", "").get()
       .then( querySnapshot => {
         var snapshot = []
@@ -38,6 +27,4 @@ const mapDispatchToProps = dispatch => ({
       })
       .catch(error => console.log(error.message))
   }
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Map)
+})(Map)
