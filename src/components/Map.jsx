@@ -7,14 +7,12 @@ import Pin from "./Pin.jsx"
 const MAPBOX_TOKEN = process.env.REACT_APP_DEV_API_URL;
 
 class Map extends React.Component{
+
+
   
-  handleClick = () => {
-    console.log("button clicked!!")
-    const { locate_user } = this.props
-    locate_user()
-  }
   componentDidMount(){
     this.props.actionFirestore()
+    this.props.locate_user()
     console.log("componentDidMount")
   }
   render(){
@@ -22,12 +20,6 @@ class Map extends React.Component{
     const { on_viewport_change, map, quests, markerClicked } = this.props
     return (
       <div>
-        <Button
-          variant="contained"
-          onClick={this.handleClick}
-        >
-          現在地
-        </Button>
         <ReactMapGL
           style={{textAlign:"left"}}
           {...map.viewport}
