@@ -15,9 +15,10 @@ class Map extends React.Component{
   }
   componentDidMount(){
     this.props.actionFirestore()
-    console.log("action!")
+    console.log("componentDidMount")
   }
   render(){
+    console.log("render!!")
     const { on_viewport_change, map, quests } = this.props
     return (
       <div>
@@ -45,7 +46,7 @@ class Map extends React.Component{
                   <Pin size={20} /> 
                 </Marker>
               )) 
-              : console.log("map is not object") }  
+              : console.log("quests is not object") }  
       </ReactMapGL>
       </div>
     )
