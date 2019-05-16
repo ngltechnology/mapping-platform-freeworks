@@ -1,5 +1,5 @@
 import React from "react"
-import ReactMapGL,{Marker} from "react-map-gl"
+import ReactMapGL from "react-map-gl"
 import Button from "@material-ui/core/Button"
 import "../styles/Map.scss"
 import Pin from "./Pin.jsx"
@@ -37,15 +37,11 @@ class Map extends React.Component{
         >
           {quests instanceof Object 
               ? quests.map(quest => (
-                <Marker
+                <Pin
                   key={quest.key}
-                  latitude={quest.location.lat}
-                  longitude={quest.location.lng}
-                  
-                >
-                  <Pin size={20} /> 
-                </Marker>
-              )) 
+                  quest={quest}
+                  color="#0000ff"
+                />))
               : console.log("quests is not object") }  
       </ReactMapGL>
       </div>
