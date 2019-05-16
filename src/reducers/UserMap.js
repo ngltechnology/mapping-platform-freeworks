@@ -9,7 +9,7 @@ const initialState = {
     zoom: 8,
   },
   marker: {
-    latitude: 337.7577,
+    latitude: 37.7577,
     longitude: -122.4376,
   }
 }
