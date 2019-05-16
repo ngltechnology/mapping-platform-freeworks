@@ -4,6 +4,7 @@ import { createStore, applyMiddleware } from "redux"
 import { Provider } from "react-redux"
 import { composeWithDevTools } from "redux-devtools-extension"
 import { createLogger } from 'redux-logger'
+import thunk from "redux-thunk"
 import { createBrowserHistory } from "history"
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router'
 import { Switch, Route } from "react-router-dom"
@@ -21,12 +22,12 @@ const logger = createLogger({
   collapsed: true,
   diff: true,
 })
-
 const store = createStore(
   rootReducers(history),
   composeWithDevTools(
     applyMiddleware(
       logger,
+      thunk,
       routerMiddleware(history),
     )
   )
