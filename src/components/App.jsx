@@ -11,6 +11,9 @@ import GrowCard from "./Card"
 import UserInfoContainer from '../containers/UserInfoContainer'
 import AuthContainer from '../containers/AuthContainer'
 
+/* eslint-disable-nextline */
+require('dotenv').config()
+
 class App extends Component {
   
   componentDidMount(){
