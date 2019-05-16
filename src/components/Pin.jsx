@@ -8,28 +8,47 @@ const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,
 
 
 export default class Pin extends PureComponent {
+
+  handleClick() {
+    const { quest, markerClick } = this.props
+    markerClick(quest)
+  }
+  
   render() {
     const {
       quest,
       size = 20,
       color = "#d00"
     } = this.props;
-
+    const style = {
+      backgroundColor: "transparent",
+        border: "none",
+        cursor: "pointer",
+        outline: "none",
+        padding: 0,
+        appearance: "none",
+    }
     return (
       <Marker
         latitude={quest.location.lat}
         longitude={quest.location.lng}
+        
       >
-      <svg
-        height={size}
-        viewBox="0 0 24 24"
-        style={{
-          fill: color,
-          stroke: "none"
-        }}
-      >
-        <path d={ICON} />
-      </svg>
+        <button
+          style={style}
+          onClick={this.handleClick}
+        >
+          <svg
+            height={size}
+            viewBox="0 0 24 24"
+            style={{
+              fill: color,
+              stroke: "none"
+            }}
+          >
+            <path d={ICON} />
+          </svg>
+        </button>
       </Marker>
     );
   }

@@ -19,7 +19,7 @@ class Map extends React.Component{
   }
   render(){
     console.log("render!!")
-    const { on_viewport_change, map, quests } = this.props
+    const { on_viewport_change, map, quests, markerClicked } = this.props
     return (
       <div>
         <Button
@@ -41,6 +41,7 @@ class Map extends React.Component{
                   key={quest.key}
                   quest={quest}
                   color="#0000ff"
+                  markerClick={markerClicked}
                 />))
               : console.log("quests is not object") }  
       </ReactMapGL>

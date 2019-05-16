@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import { locate_user, on_viewport_change } from "../actions/UserMapActions.js"
 import { firestore } from "../firebase"
-import { loadQuestsSuccess } from "../actions"
+import { loadQuestsSuccess, markerClicked } from "../actions"
 import Map from '../components/Map'
 
 const mapStateToProps = state => ({
@@ -20,7 +20,12 @@ const mapDispatchToProps = dispatch => ({
       console.log("Geolocation is offline")
       return null;
     }
-  }, 
+  },
+  markerClicked: quest => (
+    // eslint-disable-next-line
+    dispatch(cardOn()),
+    dispatch(markerClicked(quest))
+  ),
   on_viewport_change: viewport => {
     dispatch(on_viewport_change(viewport))
   },
