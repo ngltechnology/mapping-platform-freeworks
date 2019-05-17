@@ -2,7 +2,7 @@ import { CARD_ON, CARD_OFF } from "../actions"
 
 const initialState = { checked: false }
 
-const card = (state=initialState, action) => {
+export default (state=initialState, action) => {
   switch(action.type){
     case CARD_ON:
       return Object.assign({},{
@@ -16,4 +16,3 @@ const card = (state=initialState, action) => {
       return state;
   }
 }
-export default card;

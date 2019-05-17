@@ -8,8 +8,6 @@ import { loginOk } from '../actions/auth'
 const mapStateToProps = state => ({
   isAuth: state.isAuth
 })
-
-
 const mapDispatchToProps = dispatch => {
   return {
     doLogin: () => {
@@ -26,10 +24,7 @@ const mapDispatchToProps = dispatch => {
     }
   }
 }
-
-const AuthContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Auth)
-
-export default AuthContainer

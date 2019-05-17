@@ -1,6 +1,6 @@
 import { RECEIVE_QUESTS_SUCCESS, RECEIVE_QUESTS_ERROR } from "../actions/index.js"
 
-const quests = (state=0, action) => {
+export default (state=0, action) => {
   switch( action.type ) {
     case RECEIVE_QUESTS_SUCCESS:
       return Object.assign({},{
@@ -13,4 +13,3 @@ const quests = (state=0, action) => {
        return state;
   }
 }
-export default quests;

@@ -7,7 +7,7 @@ const initialState = {
   reward: null,
 }
 
-const quest = (state=initialState, action) => {
+export default (state=initialState, action) => {
   switch (action.type) {
     case MARKER_CLICKED:
       return Object.assign({},{
@@ -20,4 +20,3 @@ const quest = (state=initialState, action) => {
       return state;
   }
 }
-export default quest;

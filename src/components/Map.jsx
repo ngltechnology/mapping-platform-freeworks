@@ -16,9 +16,7 @@ class Map extends React.Component{
   render(){
     const { on_viewport_change, map, quests, markerClicked } = this.props
     return (
-      <div>
-        
-        
+      <div> 
         <ReactMapGL
           style={{textAlign:"left"}}
           {...map.viewport}

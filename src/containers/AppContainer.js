@@ -35,10 +35,8 @@ const mapDispatchToProps = dispatch => ({
           dispatch(loadQuestsSuccess(cities))
         })
       },
-      error    => dispatch(loadQuestsError(error))
+      error => dispatch(loadQuestsError(error))
     )
   )
 })
-
-const AppContainer = connect( mapStateToProps, mapDispatchToProps )(App)
-export default AppContainer;
+export default connect( mapStateToProps, mapDispatchToProps )(App)
