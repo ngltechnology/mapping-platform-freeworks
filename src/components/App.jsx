@@ -6,7 +6,6 @@ import '../styles/App.scss';
 import AuthContainer from '../containers/AuthContainer.js'
 import AccountContainer from "../containers/AccountContainer"
 import MapContainer from "../containers/MapContainer"
-import { auth } from '../firebase';
 import { connect } from "react-redux"
 
 /* eslint-disable-nextline */
