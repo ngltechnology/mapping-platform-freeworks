@@ -5,13 +5,12 @@ import { connect } from 'react-redux'
 import Auth from '../components/Auth'
 import { loginOk } from '../actions/auth'
 
-const mapStateToProps = (state) => {
-  return {
-    isAuth: state.isAuth
-  }
-}
+const mapStateToProps = state => ({
+  isAuth: state.isAuth
+})
 
-const mapDispatchToProps = (dispatch) => {
+
+const mapDispatchToProps = dispatch => {
   return {
     doLogin: () => {
       let provider = new firebase.auth.GoogleAuthProvider()

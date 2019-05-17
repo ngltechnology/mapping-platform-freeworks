@@ -6,7 +6,7 @@ export default class Auth extends Component {
     this.props.refLogin()
   }
 
-  render() {
+  render(){
     return (
       <div>
         <button onClick={this.props.doLogin}>Login</button>

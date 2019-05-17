@@ -2,13 +2,13 @@ import React from "react"
 import ReactMapGL from "react-map-gl"
 import "../styles/Map.scss"
 import Pin from "./Pin.jsx"
+import { Link as RouterLink } from "react-router-dom"
+import { Link, Avatar, IconButton } from "@material-ui/core"
+import GrowCard from "./Card"
 
 const MAPBOX_TOKEN = process.env.REACT_APP_DEV_API_URL;
 
 class Map extends React.Component{
-
-
-
   componentDidMount(){
     this.props.actionFirestore()
     this.props.locate_user()
@@ -17,6 +17,8 @@ class Map extends React.Component{
     const { on_viewport_change, map, quests, markerClicked } = this.props
     return (
       <div>
+        
+        
         <ReactMapGL
           style={{textAlign:"left"}}
           {...map.viewport}
@@ -33,6 +35,14 @@ class Map extends React.Component{
             />))
           : console.log("quests is not object") }  
         </ReactMapGL>
+        <div className="avatarContain">
+          <Link component={RouterLink} to="/account">
+            <IconButton className="avatar">
+              <Avatar className="avatar">T</Avatar>
+            </IconButton>
+          </Link>
+        </div>
+        <GrowCard />
       </div>
     )
   }

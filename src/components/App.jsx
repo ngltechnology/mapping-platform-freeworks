@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from "react-router-dom"
 
 import '../styles/App.scss';
-import PrivateRoute from "./PrivateRoute.jsx"
+//import PrivateRoute from "./PrivateRoute.jsx"
 import MapContainer from "../containers/MapContainer"
 import AuthContainer from '../containers/AuthContainer.js'
 import AccountContainer from "../containers/AccountContainer"
