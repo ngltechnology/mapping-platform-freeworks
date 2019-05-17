@@ -7,14 +7,11 @@ import { createLogger } from 'redux-logger'
 import thunk from "redux-thunk"
 import { createBrowserHistory } from "history"
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router'
-import { Switch, Route } from "react-router-dom"
-
+import { Switch } from "react-router-dom"
+import App from "./components/App"
 import rootReducers from "./reducers"
 import './styles/index.scss';
-import AppContainer from './containers/AppContainer'
-import AccountContainer from "./containers/AccountContainer"
 import * as serviceWorker from './serviceWorker';
-
 
 const history = createBrowserHistory()
 
@@ -37,8 +34,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
-        <Route exact path="/" component={AppContainer} />
-        <Route path="/account" component={AccountContainer} />
+        <App />
       </Switch>
     </ConnectedRouter>
   </Provider>,
