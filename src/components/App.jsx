@@ -1,21 +1,40 @@
 import React from 'react';
-import { Route } from "react-router-dom"
+import { Route, Redirect } from "react-router-dom"
 
 import '../styles/App.scss';
-//import PrivateRoute from "./PrivateRoute.jsx"
-import MapContainer from "../containers/MapContainer"
+// import MapContainer from "../containers/MapContainer"
 import AuthContainer from '../containers/AuthContainer.js'
 import AccountContainer from "../containers/AccountContainer"
+import MapContainer from "../containers/MapContainer"
+import { auth } from '../firebase';
+import { connect } from "react-redux"
 
 /* eslint-disable-nextline */
 require('dotenv').config()
 
-const App = () => (
+// eslint-disable-next-line react/display-name
+export default () => (
   <React.Fragment>
     <Route path='/login' component={AuthContainer} />
-    <Route path="/map" component={MapContainer} />
+    <PrivateRoute exact path="/" component={MapContainer} />
     <Route path="/account" component={AccountContainer} />
   </React.Fragment>
- )
+)
 
-export default App;
+
+const PrivateRoute = connect(state=>({uid: state.auth.uid}))(
+  ({ uid, component: Component, ...rest }) => {
+    console.log(rest,uid)
+    return (
+      <Route
+        {...rest}
+        render={ props =>
+        uid!==null ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/login" />
+        )}
+      />
+    )
+  }  
+)
