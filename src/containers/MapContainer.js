@@ -7,7 +7,8 @@ import Map from '../components/Map'
 const mapStateToProps = state => ({
   state: state,
   map: state.map,
-  quests: state.quests.quests
+  quests: state.quests.quests,
+  photoURL: state.auth.photoURL,
 })
 const mapDispatchToProps = dispatch => ({
   locate_user: () => {

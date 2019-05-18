@@ -14,7 +14,7 @@ class Map extends React.Component{
     this.props.locate_user()
   }
   render(){
-    const { on_viewport_change, map, quests, markerClicked } = this.props
+    const { on_viewport_change, map, quests, photoURL, markerClicked } = this.props
     return (
       <div> 
         <ReactMapGL
@@ -36,7 +36,7 @@ class Map extends React.Component{
         <div className="avatarContain">
           <Link component={RouterLink} to="/account">
             <IconButton className="avatar">
-              <Avatar className="avatar">T</Avatar>
+              <Avatar className="avatar" src={photoURL} />
             </IconButton>
           </Link>
         </div>

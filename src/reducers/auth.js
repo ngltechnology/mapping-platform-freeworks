@@ -6,21 +6,21 @@ const initialState = {
 export default (state=initialState, action) => {
   switch (action.type) {
     case "LOGIN_OK": {
-      return Object.assign({}, state, {
-        uid: action.payload.uid,
-        displayName: action.payload.displayName,
-        email: action.payload.email
+      return Object.assign({}, {
+        uid: action.user.uid,
+        displayName: action.user.displayName,
+        email: action.user.email,
+        photoURL: action.user.photoURL
       })
     }
-
     case 'LOGOUT': {
-      return Object.assign({}, state, {
+      return Object.assign({}, {
         uid: null,
         displayName: null,
-        email: null
+        email: null,
+        photoURL: null,
       })
     }
-
     default: {
       return state
     }

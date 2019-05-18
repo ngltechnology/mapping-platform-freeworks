@@ -15,7 +15,7 @@ require('dotenv').config()
 export default () => (
   <React.Fragment>
     <Route path='/login' component={AuthContainer} />
-    <PrivateRoute exact path="/" component={MapContainer} />
+    <Route exact path="/" component={MapContainer} />
     <Route path="/account" component={AccountContainer} />
   </React.Fragment>
 )

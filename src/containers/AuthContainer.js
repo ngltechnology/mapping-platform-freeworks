@@ -1,4 +1,4 @@
-import { auth } from '../firebase'
+import { auth, firestore } from '../firebase'
 import firebase from "firebase/app"
 import "firebase/auth"
 import { connect } from 'react-redux'
@@ -16,10 +16,18 @@ const mapDispatchToProps = dispatch => {
     },
     refLogin: () => {
       auth.onAuthStateChanged(user => {
+        console.log(user)
         if (!user) {
           return
         }
-        dispatch(loginOk(user))
+        firestore.collection("partner").doc(user.uid).set({
+          displayName: user.displayName,
+          email: user.email,
+          photoURL: user.photoURL
+        })
+        .then(()=>{
+          dispatch(loginOk(user))
+        })
       })
     }
   }
