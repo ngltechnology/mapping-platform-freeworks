@@ -1,8 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from "react-router-dom"
-
 import '../styles/App.scss';
-// import MapContainer from "../containers/MapContainer"
 import AuthContainer from '../containers/AuthContainer.js'
 import AccountContainer from "../containers/AccountContainer"
 import MapContainer from "../containers/MapContainer"

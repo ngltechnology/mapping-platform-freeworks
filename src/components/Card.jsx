@@ -14,7 +14,7 @@ import Grow from "@material-ui/core/Grow"
 import Clear from "@material-ui/icons/Clear"
 import IconButton from "@material-ui/core/IconButton"
 
-import {cardOff} from "../actions"
+import { cardOff } from "../actions"
 
 
 const GrowCard = props => (
@@ -50,12 +50,11 @@ const GrowCard = props => (
         </CardContent>
       </CardActionArea>
       <CardActions>
-        
-        <Button size="small" color="primary">
-          時間を選ぶ
+        <Button variant="contained" size="small" color="primary">
+          詳細を見る
         </Button>
-        <Button size="small" color="primary">
-          キャンセル
+        <Button variant="contained" size="small" color="primary">
+          この仕事を受ける
         </Button>
       </CardActions>
       
