@@ -4,7 +4,8 @@ import "../styles/Map.scss"
 import Pin from "./Pin.jsx"
 import { Link as RouterLink } from "react-router-dom"
 import { Link, Avatar, IconButton } from "@material-ui/core"
-import GrowCard from "./Card"
+import GrowCardContainer from "../containers/CardContainer.js"
+import FullScreenDialog from "../containers/DialogContainer.js"
 
 const MAPBOX_TOKEN = process.env.REACT_APP_DEV_API_URL;
 
@@ -47,8 +48,9 @@ class Map extends React.Component{
             </IconButton>
           </Link>
         </div>
-        <GrowCard />
-      </div>
+        <GrowCardContainer />
+        <FullScreenDialog />
+      </div>   
     )
   }
 }

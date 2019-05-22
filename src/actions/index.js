@@ -5,6 +5,8 @@ export const RECEIVE_QUESTS_ERROR = "RECEIVE_QUESTS_ERROR"
 export const CURRENT_LOCATION_SUC = "CURRENT_LOCATION_SUC"
 export const CURRENT_LOCATION_ERR = "CURRENT_LOCATION_ERR"
 export const MARKER_CLICKED = "MARKER_CLICKED"
+export const DIALOG_ON = "DIALOG_ON"
+export const DIALOG_OFF = "DIALOG_OFF"
 
 export const cardOn = () => ({
   type: CARD_ON,
@@ -41,4 +43,13 @@ export const getLocationErr = error => ({
 export const markerClicked = quest => ({
   type: MARKER_CLICKED,
   quest,
+})
+
+export const dialog_on = () => ({
+  type: DIALOG_ON,
+  payload: true
+})
+export const dialog_off = () => ({
+  type: DIALOG_OFF,
+  payload: false
 })

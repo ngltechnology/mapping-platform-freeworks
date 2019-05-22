@@ -6,6 +6,7 @@ import quests from "./quests"
 import quest from "./quest"
 import auth from "./auth"
 import map from "./UserMap.js"
+import dialog from "./dialog.js"
 
 export default history => combineReducers({
   router: connectRouter(history),
@@ -13,5 +14,6 @@ export default history => combineReducers({
   quest,
   quests,
   auth,
-  map
+  map,
+  dialog
 })
