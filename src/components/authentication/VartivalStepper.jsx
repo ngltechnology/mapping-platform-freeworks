@@ -9,6 +9,7 @@ import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import Link from "@material-ui/core/Link"
 import { Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 
 import { step_increment, step_decrement } from "./AuthenticationState"
@@ -85,7 +86,7 @@ class VerticalLinearStepper extends React.Component {
                       onClick={handleNext}
                       className={classes.button}
                     >
-                      {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                      {activeStep === steps.length - 1 ? '確認画面へ' : 'Next'}
                     </Button>
                   </div>
                 </div>
@@ -106,8 +107,15 @@ class VerticalLinearStepper extends React.Component {
                 ))}
               </TableBody>
             </Table>
-            <Button onclick="#" className={classes.button}>
-              確認しました！
+            <Link to="#"><p>プライバシーポリシー</p></Link>
+            <Link to="#"><p>利用規約</p></Link>
+            <Button
+              variant="outlined"
+              color="primary"
+              onclick="#"
+              className={classes.button}
+            >
+              ポリシーに同意の上保存
             </Button>
           </Paper>
         )}
