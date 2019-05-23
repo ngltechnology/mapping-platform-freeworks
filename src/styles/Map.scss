@@ -1,21 +1,15 @@
-
 .avatarContain{
   position: fixed;
   top: 5vw;
   right: 5vw;
 }
-// .avatar{
-//   width:60px;
-//   height: 60px;
-// }
-
 .InfoCard{
   position: absolute;
   height: 60vh;
   width: 94vw;
   max-width: 500px;
-  bottom: 5vw;
-  left: 3vw;
+  bottom: 2vw;
+  left: 2vw;
   background-color: white;
 }
 .map{
@@ -25,4 +19,10 @@
   position: fixed;
   overflow-y: hidden;
   overscroll-behavior-y: none;
+}
+.mapboxgl-ctrl-bottom-left{
+  display: none;
+}
+.mapboxgl-ctrl-bottom-right{
+  display: none;
 }
