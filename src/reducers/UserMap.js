@@ -4,13 +4,13 @@ const initialState = {
   viewport: {
     width: "100%",
     height: "100vh",
-    latitude: 37.7577,
-    longitude: -122.4376,
+    latitude: 35.6585805,
+    longitude: 139.7432442,
     zoom: 12,
   },
   marker: {
-    latitude: 37.7577,
-    longitude: -122.4376,
+    latitude: 35.6585805,
+    longitude: 139.7432442,
   }
 }
 
