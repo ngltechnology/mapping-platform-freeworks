@@ -6,6 +6,7 @@ import AccountContainer from "../containers/AccountContainer"
 import MapContainer from "../containers/MapContainer"
 import { connect } from "react-redux"
 import { firestore } from "../firebase"
+import Authentiacation from "./authentication"
 
 /* eslint-disable-nextline */
 require('dotenv').config()
@@ -14,7 +15,7 @@ require('dotenv').config()
 export default () => {
   return(
   <React.Fragment>
-    <Route path='/login' component={AuthContainer} />
+    <Route path='/login' component={Authentiacation} />
     <Route exact path="/" component={MapContainer} />
     <Route path="/account" component={AccountContainer} />
   </React.Fragment>

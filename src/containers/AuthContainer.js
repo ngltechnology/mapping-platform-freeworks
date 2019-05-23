@@ -1,3 +1,4 @@
+import { withRouter } from "react-router-dom"
 import { auth, firestore } from '../firebase'
 import firebase from "firebase/app"
 import "firebase/auth"
@@ -32,7 +33,7 @@ const mapDispatchToProps = dispatch => {
     }
   }
 }
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Auth)
+)(Auth))

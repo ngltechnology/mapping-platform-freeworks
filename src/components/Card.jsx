@@ -56,6 +56,7 @@ const GrowCard = ({
             </Typography>
             <div className={classes.chips}>
               <Chip label="friendly" />
+              <Chip label="飲食店" />
             </div>
           </CardContent>
         </CardActionArea>
@@ -66,8 +67,7 @@ const GrowCard = ({
           <Button size="small" color="primary">
             この仕事を受ける
           </Button>
-        </CardActions>
-        
+        </CardActions> 
       </Card>  
     </Grow>
   </React.Fragment>

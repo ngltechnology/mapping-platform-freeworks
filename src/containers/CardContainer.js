@@ -1,4 +1,5 @@
 import { connect } from "react-redux"
+//import { withRouter } from "react-router-dom"
 import GrowCard from "../components/Card.jsx"
 import { cardOff, dialog_on } from "../actions"
 
@@ -20,4 +21,4 @@ const GrowCardContainer = connect(
   mapDispatchToProps
 )(GrowCard)
 
-export default GrowCardContainer;
+export default GrowCardContainer

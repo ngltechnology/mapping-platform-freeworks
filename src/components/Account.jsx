@@ -1,15 +1,26 @@
 import React from "react"
-import { Avatar, IconButton, withStyles } from "@material-ui/core";
+import {
+  Typography,
+  Card,
+  Table,
+  TableHead,
+  TableCell,
+  TableRow,
+  TableBody,
+  Avatar,
+  IconButton,
+  withStyles
+} from "@material-ui/core";
 import "../styles/Account.scss"
 
 const styles = {
   header: {
     backgroundColor: "black",
-    height: "50vh",
+    height: "30vh",
     width: "100vw"
   },
   leftButton: {
-    top: "20vh",
+    top: "8vh",
     width: "20vw",
     height: "20vw",
     padding: "0"
@@ -19,7 +30,7 @@ const styles = {
     height: "20vw",
   },
   centerButton: {
-    top: "20vh",
+    top: "8vh",
     width: "25vw",
     height: "25vw",
     padding: "0",
@@ -31,7 +42,7 @@ const styles = {
     height: "25vw",
   },
   rightButton: {
-    top: "20vh",
+    top: "8vh",
     width: "20vw",
     height: "20vw",
     padding: "0"
@@ -41,6 +52,15 @@ const styles = {
     width: "20vw",
     height: "20vw",
   },
+  bottom: {
+    top: "30vh"
+  },
+  table: {
+    
+  },
+  card: {
+    
+  }
 }
 
 const Account = props => {
@@ -59,7 +79,19 @@ const Account = props => {
           <Avatar className={classes.rightAvatar} >R</Avatar>
         </IconButton>
       </div>
-      
+      <div className={classes.bottom}>
+        <Card className={classes.card}>
+          
+          <Table className={classes.table}>
+            <TableBody>
+              <TableRow>
+                <TableCell>Timeline</TableCell>
+                <TableCell></TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </Card>
+      </div>
     </React.Fragment>
   )
 }

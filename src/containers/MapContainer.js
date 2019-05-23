@@ -1,4 +1,5 @@
 import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
 import { locate_user, on_viewport_change } from "../actions/UserMapActions.js"
 import { firestore } from "../firebase"
 import { loadQuestsSuccess, markerClicked, cardOn } from "../actions"
@@ -46,4 +47,4 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Map)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Map))
