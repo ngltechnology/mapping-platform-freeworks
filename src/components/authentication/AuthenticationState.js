@@ -9,7 +9,7 @@ export const step_decrement = () => ({
 })
 
 const initialState = { activeStep: 0 }
-export const authentication = (state=initialState, action) => {
+export default (state=initialState, action) => {
 	switch(action.type){
 		case STEP_INCREMENT:
 			return Object.assign({},{
