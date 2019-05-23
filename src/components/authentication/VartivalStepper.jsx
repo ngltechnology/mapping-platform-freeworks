@@ -9,6 +9,7 @@ import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField'
 
 import { step_increment, step_decrement } from "./AuthenticationState"
 
@@ -35,9 +36,7 @@ function getSteps() {
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return `For each ad campaign that you create, you can control how much
-              you're willing to spend on clicks and conversions, which networks
-              and geographical locations you want your ads to show on, and more.`;
+      return <TextField variant="outlined" label="test" />;
     case 1:
       return 'An ad group contains one or more ads which target a shared set of keywords.';
     case 2:
