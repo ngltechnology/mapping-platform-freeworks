@@ -8,6 +8,8 @@ import thunk from "redux-thunk"
 import { createBrowserHistory } from "history"
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router'
 import { Switch } from "react-router-dom"
+import { MuiThemeProvider } from "@material-ui/core/styles"
+import theme from "./styles/theme"
 import App from "./components/App"
 import rootReducers from "./reducers"
 import './styles/index.scss';
@@ -33,9 +35,11 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Switch>
-        <App />
-      </Switch>
+      <MuiThemeProvider theme={theme}>
+        <Switch>
+          <App />
+        </Switch>
+      </MuiThemeProvider>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
