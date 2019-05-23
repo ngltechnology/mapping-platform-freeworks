@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-import { stepIncrement, stepDecrement } from "../../actions/auth.js"
+import { step_increment, step_decrement } from "./AuthenticationState"
 
 const styles = theme => ({
   root: {
@@ -52,9 +52,13 @@ function getStepContent(step) {
 
 class VerticalLinearStepper extends React.Component {
   render() {
-    const { classes } = this.props;
+    const {
+      classes,
+      activeStep,
+      handleBack,
+      handleNext
+    } = this.props;
     const steps = getSteps();
-    const { activeStep } = this.state;
 
     return (
       <div className={classes.root}>
@@ -68,7 +72,7 @@ class VerticalLinearStepper extends React.Component {
                   <div>
                     <Button
                       disabled={activeStep === 0}
-                      onClick={this.handleBack}
+                      onClick={handleBack}
                       className={classes.button}
                     >
                       Back
@@ -76,7 +80,7 @@ class VerticalLinearStepper extends React.Component {
                     <Button
                       variant="contained"
                       color="primary"
-                      onClick={this.handleNext}
+                      onClick={handleNext}
                       className={classes.button}
                     >
                       {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
@@ -90,7 +94,7 @@ class VerticalLinearStepper extends React.Component {
         {activeStep === steps.length && (
           <Paper square elevation={0} className={classes.resetContainer}>
             <Typography>All steps completed - you&apos;re finished</Typography>
-            <Button onClick={this.handleReset} className={classes.button}>
+            <Button  className={classes.button}>
               Reset
             </Button>
           </Paper>
@@ -105,11 +109,11 @@ VerticalLinearStepper.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  activeStep: state.auth,
+  activeStep: state.authentication.activeStep,
 })
 const mapDispatchToProps = dispatch => ({
-  handleBack: dispatch(stepIncrement()),
-  handleBack: dispatch(stepDecrement())
+  handleNext: ()=>dispatch(step_increment()),
+  handleBack: ()=>dispatch(step_decrement()),
 })
 
 export default connect(
