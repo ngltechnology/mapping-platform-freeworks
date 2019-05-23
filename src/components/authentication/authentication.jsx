@@ -1,26 +1,22 @@
 import React from "react"
-import { connect } from "react-redux"
-
 import { withStyles } from "@material-ui/core"
 
 import VerticalLinearStepper from "./VartivalStepper.jsx"
 
-const Authentiacation = ({...props}) => {
+const Authentiacation = ({classes}) => {
   return (
     <React.Fragment>
-      <VerticalLinearStepper />
+      <VerticalLinearStepper
+        className={classes.stepper}
+      />
     </React.Fragment>
   )
 }
 
-const styles = {}
+const styles = {
+  stepper: {
+    margin: "auto"
+  }
+}
 
-const mapStateToProps = state => ({})
-const mapDispatchToProps = dispatch => ({})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(
-  withStyles(styles)(Authentiacation)
-)
+export default withStyles(styles)(Authentiacation)

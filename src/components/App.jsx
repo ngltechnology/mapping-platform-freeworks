@@ -6,7 +6,7 @@ import AccountContainer from "../containers/AccountContainer"
 import MapContainer from "../containers/MapContainer"
 import { connect } from "react-redux"
 import { firestore } from "../firebase"
-import Authentiacation from "./authentication"
+import Authentiacation from "./authentication/Authentication"
 
 /* eslint-disable-nextline */
 require('dotenv').config()

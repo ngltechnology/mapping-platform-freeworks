@@ -9,13 +9,15 @@ import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField'
+import { Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 
 import { step_increment, step_decrement } from "./AuthenticationState"
+import { StepFirst, StepSecond, StepThird } from "./Form"
 
 const styles = theme => ({
   root: {
-    width: '90%',
+    width: '100vw',
+    height: '100vh'
   },
   button: {
     marginTop: theme.spacing.unit,
@@ -30,22 +32,19 @@ const styles = theme => ({
 });
 
 function getSteps() {
-  return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+  return ['基本の情報の入力しよう！', '詳しい情報入力！', '支払い情報'];
 }
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <TextField variant="outlined" label="test" />;
+      return <StepFirst />;
     case 1:
-      return 'An ad group contains one or more ads which target a shared set of keywords.';
+      return <StepSecond /> ;
     case 2:
-      return `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`;
+      return <StepThird />;
     default:
-      return 'Unknown step';
+      return "error";
   }
 }
 
@@ -59,6 +58,10 @@ class VerticalLinearStepper extends React.Component {
     } = this.props;
     const steps = getSteps();
 
+    const rows = [
+      ["name", "name"],
+      ["Address", "Address"]
+    ]
     return (
       <div className={classes.root}>
         <Stepper activeStep={activeStep} orientation="vertical">
@@ -92,9 +95,19 @@ class VerticalLinearStepper extends React.Component {
         </Stepper>
         {activeStep === steps.length && (
           <Paper square elevation={0} className={classes.resetContainer}>
-            <Typography>All steps completed - you&apos;re finished</Typography>
-            <Button  className={classes.button}>
-              Reset
+            <Typography>内容確認</Typography>
+            <Table>
+              <TableBody>
+                {rows.map((row, i) => (
+                  <TableRow key={i}>
+                    <TableCell>{row[0]}</TableCell>
+                    <TableCell>{row[1]}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+            <Button onclick="#" className={classes.button}>
+              確認しました！
             </Button>
           </Paper>
         )}
