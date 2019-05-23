@@ -1,7 +1,7 @@
 import { combineReducers } from "redux"
 import { connectRouter } from 'connected-react-router'
 
-import authenticatin from "../components/authentication/AuthenticationState"
+import authentication from "../components/authentication/AuthenticationState"
 import card from "./card"
 import quests from "./quests"
 import quest from "./quest"
@@ -11,7 +11,7 @@ import dialog from "./dialog.js"
 
 export default history => combineReducers({
   router: connectRouter(history),
-  authenticatin,
+  authentication,
   card,
   quest,
   quests,
