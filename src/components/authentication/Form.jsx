@@ -26,9 +26,10 @@ export const StepFirst = connect(
 				required
 			/>
 			<TextField
-				name="test"
+				name="number"
 				variant="outlined"
-				label="second"
+				label="電話番号"
+				type="number"
 				onChange={props.handleChange}
 				helperText=""
 				margin="normal"
@@ -49,40 +50,42 @@ export const StepFirst = connect(
 	)
 })
 
-export const StepSecond = () => {
-	const handleChange = event => {
-		console.log(event.target.value)
-		
-	}
-	return(
-		<React.Fragment>
-			<TextField 
-				variant="outlined"
-				label="Name"
-				onChange={handleChange}
-				helperText="フルネームで入力"
-				margin="normal"
-				fullWidth
-				required
-			/>
-			<TextField 
-				variant="outlined"
-				label="Name"
-				onChange={handleChange}
-				helperText="フルネームで入力"
-				margin="normal"
-				fullWidth
-				required
-			/>
-		</React.Fragment>
-	)
-}
+export const StepSecond = connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(
+	({handleChange}) => {
 
-export const StepThird = () => {
-	const handleChange = event => {
-		console.log(event.target.value)
-		
-	}
+	return(
+		<React.Fragment>
+			<TextField
+				name="a"
+				variant="outlined"
+				label="Name"
+				onChange={handleChange}
+				helperText="フルネームで入力"
+				margin="normal"
+				fullWidth
+				required
+			/>
+			<TextField
+				name="b"
+				variant="outlined"
+				label="Name"
+				onChange={handleChange}
+				helperText="フルネームで入力"
+				margin="normal"
+				fullWidth
+				required
+			/>
+		</React.Fragment>
+	)
+})
+
+export const StepThird = connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(({handleChange}) => {
 	return(
 		<React.Fragment>
 			<TextField
@@ -106,30 +109,5 @@ export const StepThird = () => {
 			/>
 		</React.Fragment>
 	)
-}
-export const StepFourth = () => {
-	const handleChange = event => {
-		console.log(event.target.value)	
-	}
-	return(
-		<React.Fragment>
-			<TextField
-				variant="outlined"
-				label="銀行名"
-				onChange={handleChange}
-			/>
-			<TextField
-				variant="outlined"
-				label="支店名"
-				onChange={handleChange}
-			/>
-			<TextField
-				type="number"
-				variant="outlined"
-				label="口座番号"
-				onChange={handleChange}
-			/>
-		</React.Fragment>
-	)
-}
+})
 

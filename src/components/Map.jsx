@@ -5,7 +5,7 @@ import Pin from "./Pin.jsx"
 import { Link as RouterLink } from "react-router-dom"
 import { Link, Avatar, IconButton } from "@material-ui/core"
 import GrowCardContainer from "../containers/CardContainer.js"
-import FullScreenDialog from "../containers/DialogContainer.js"
+import FullScreenDialog from "./Dialog/"
 
 const MAPBOX_TOKEN = process.env.REACT_APP_DEV_API_URL;
 

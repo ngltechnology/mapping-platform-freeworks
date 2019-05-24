@@ -9,11 +9,11 @@ import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import Link from "@material-ui/core/Link"
 import { Table, TableBody, TableRow, TableCell } from '@material-ui/core'
-
+import FullScreenDialog from "../Dialog"
 import { step_increment, step_decrement } from "./AuthenticationState"
 import { StepFirst, StepSecond, StepThird } from "./Form"
+import { dialog_on } from '../../actions';
 
 const styles = theme => ({
   root: {
@@ -55,7 +55,8 @@ class VerticalLinearStepper extends React.Component {
       classes,
       activeStep,
       handleBack,
-      handleNext
+      handleNext,
+      infomations
     } = this.props;
     const steps = getSteps();
 
@@ -99,16 +100,40 @@ class VerticalLinearStepper extends React.Component {
             <Typography>内容確認</Typography>
             <Table>
               <TableBody>
-                {rows.map((row, i) => (
-                  <TableRow key={i}>
-                    <TableCell>{row[0]}</TableCell>
-                    <TableCell>{row[1]}</TableCell>
-                  </TableRow>
-                ))}
+                <TableRow>
+                  <TableCell>name</TableCell>
+                  <TableCell>{infomations.name}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>name</TableCell>
+                  <TableCell>{infomations.name}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>name</TableCell>
+                  <TableCell>{infomations.name}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>name</TableCell>
+                  <TableCell>{infomations.name}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>name</TableCell>
+                  <TableCell>{infomations.name}</TableCell>
+                </TableRow>
               </TableBody>
             </Table>
-            <Link to="#"><p>プライバシーポリシー</p></Link>
-            <Link to="#"><p>利用規約</p></Link>
+            <Button
+              color="primary"
+              onClick={this.props.dialogOn}
+              >
+              プライバシーポリシー
+            </Button>
+            <Button
+              color="primary"
+              onClick={this.props.dialogOn}
+              >
+              利用規約
+            </Button>
             <Button
               variant="outlined"
               color="primary"
@@ -119,6 +144,7 @@ class VerticalLinearStepper extends React.Component {
             </Button>
           </Paper>
         )}
+        <FullScreenDialog />
       </div>
     );
   }
@@ -130,10 +156,12 @@ VerticalLinearStepper.propTypes = {
 
 const mapStateToProps = state => ({
   activeStep: state.authentication.activeStep,
+  infomations: state.authentication.form,
 })
 const mapDispatchToProps = dispatch => ({
   handleNext: ()=>dispatch(step_increment()),
   handleBack: ()=>dispatch(step_decrement()),
+  dialogOn: () => dispatch(dialog_on())
 })
 
 export default connect(
