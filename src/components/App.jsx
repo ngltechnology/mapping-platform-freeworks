@@ -4,8 +4,6 @@ import '../styles/App.scss';
 import AuthContainer from '../containers/AuthContainer.js'
 import AccountContainer from "../containers/AccountContainer"
 import MapContainer from "../containers/MapContainer"
-import { connect } from "react-redux"
-import { firestore } from "../firebase"
 import Authentiacation from "./authentication/Authentication"
 
 /* eslint-disable-nextline */
@@ -15,34 +13,10 @@ require('dotenv').config()
 export default () => {
   return(
   <React.Fragment>
-    <Route path='/login' component={Authentiacation} />
-    <Route exact path="/" component={MapContainer} />
+    <Route path='/login' component={AuthContainer} />
+    <Route path='/start' component={Authentiacation} />
+    <Route exact path="/" component={()=><Redirect to="/map" />} />
+    <Route path="/map" component={MapContainer} />
     <Route path="/account" component={AccountContainer} />
   </React.Fragment>
 )}
-
-
-const PrivateRoute = connect(state=>({uid: state.auth.uid}))(
-  ({ uid, component: Component, ...rest }) => {
-    console.log(rest,uid)
-    return (
-      <Route
-        {...rest}
-        render={ props =>
-        uid!==null ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to="/login" />
-        )}
-      />
-    )
-  }  
-)
-const startRoute = connect(state=>({uid:state.auth.uid}))(
-  (uid)=>{
-    const ref = firestore.collection("partner").doc(uid)
-    ref.get()
-      .then(user => {
-      console.log("user:",user)
-    }).catch(err => console.warn(err))
-})

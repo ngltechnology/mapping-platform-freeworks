@@ -14,6 +14,7 @@ import FullScreenDialog from "../Dialog"
 import { step_increment, step_decrement } from "./AuthenticationState"
 import { StepFirst, StepSecond, StepThird } from "./Form"
 import { dialog_on } from '../../actions';
+import { push } from "connected-react-router"
 
 const styles = theme => ({
   root: {
@@ -56,14 +57,10 @@ class VerticalLinearStepper extends React.Component {
       activeStep,
       handleBack,
       handleNext,
-      infomations
+      infomations,
     } = this.props;
     const steps = getSteps();
 
-    const rows = [
-      ["name", "name"],
-      ["Address", "Address"]
-    ]
     return (
       <div className={classes.root}>
         <Stepper activeStep={activeStep} orientation="vertical">
@@ -137,7 +134,7 @@ class VerticalLinearStepper extends React.Component {
             <Button
               variant="outlined"
               color="primary"
-              onclick="#"
+              onclick={()=>this.props.push('/map')}
               className={classes.button}
             >
               ポリシーに同意の上保存
@@ -159,9 +156,10 @@ const mapStateToProps = state => ({
   infomations: state.authentication.form,
 })
 const mapDispatchToProps = dispatch => ({
-  handleNext: ()=>dispatch(step_increment()),
-  handleBack: ()=>dispatch(step_decrement()),
-  dialogOn: () => dispatch(dialog_on())
+  handleNext: () => dispatch(step_increment()),
+  handleBack: () => dispatch(step_decrement()),
+  dialogOn: () => dispatch(dialog_on()),
+  push,
 })
 
 export default connect(

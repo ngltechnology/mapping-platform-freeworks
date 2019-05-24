@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Button } from "@material-ui/core"
 export default class Auth extends Component {
 
   componentDidMount() {
@@ -9,7 +9,13 @@ export default class Auth extends Component {
   render(){
     return (
       <div>
-        <button onClick={this.props.doLogin}>Login</button>
+        <Button
+          variant="outlined"
+          onClick={this.props.doLogin}
+          color="primary"
+        >
+          Login
+        </Button>
       </div>
     )
   }
