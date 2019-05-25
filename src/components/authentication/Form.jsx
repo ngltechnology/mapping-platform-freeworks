@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField"
 import { form_changed } from "./AuthenticationState";
 
 
-const mapStateToProps = state => ({})
+const mapStateToProps = () => null
 const mapDispatchToProps = dispatch => ({
 	handleChange: e => dispatch(form_changed(e))
 })

@@ -58,6 +58,7 @@ class VerticalLinearStepper extends React.Component {
       handleBack,
       handleNext,
       infomations,
+      push,
     } = this.props;
     const steps = getSteps();
 
@@ -134,7 +135,7 @@ class VerticalLinearStepper extends React.Component {
             <Button
               variant="outlined"
               color="primary"
-              onclick={()=>this.props.push('/map')}
+              onClick={push}
               className={classes.button}
             >
               ポリシーに同意の上保存
@@ -159,7 +160,7 @@ const mapDispatchToProps = dispatch => ({
   handleNext: () => dispatch(step_increment()),
   handleBack: () => dispatch(step_decrement()),
   dialogOn: () => dispatch(dialog_on()),
-  push,
+  push: () => dispatch(push("/map")),
 })
 
 export default connect(

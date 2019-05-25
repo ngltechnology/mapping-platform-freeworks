@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from "react-router-dom"
 import '../styles/App.scss';
-import AuthContainer from '../containers/AuthContainer.js'
+import Auth from './Auth.jsx'
 import AccountContainer from "../containers/AccountContainer"
 import MapContainer from "../containers/MapContainer"
 import Authentiacation from "./authentication/Authentication"
@@ -13,7 +13,7 @@ require('dotenv').config()
 export default () => {
   return(
   <React.Fragment>
-    <Route path='/login' component={AuthContainer} />
+    <Route path='/login' component={Auth} />
     <Route path='/start' component={Authentiacation} />
     <Route exact path="/" component={()=><Redirect to="/map" />} />
     <Route path="/map" component={MapContainer} />
