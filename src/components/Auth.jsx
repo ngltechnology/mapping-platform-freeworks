@@ -29,7 +29,13 @@ class Auth extends Component {
               START UP
             </Button>
           )
-          : this.props.push}
+            : <Button
+                variant="outlined"
+                onClick={this.props.push}
+                color="primary"
+                margin="normal"
+              />
+              }
       </div>
     )
   }

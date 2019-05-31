@@ -4,5 +4,6 @@ import "firebase/auth/"
 import { config } from "./config"
 
 export const firebaseApp = firebase.initializeApp(config)
-export const firestore = firebase.firestore()
+const settings = { timestampsInSnapshots: true };
+export const firestore = firebase.firestore(settings)
 export const auth = firebase.auth()
