@@ -3,7 +3,7 @@ import { LOCATE_USER, ON_VIEWPORT_CHANGE } from "../actions/UserMapActions.js"
 const initialState = {
   viewport: {
     width: "100%",
-    height: "100vh",
+    height: "90vh",
     latitude: 35.6585805,
     longitude: 139.7432442,
     zoom: 12,

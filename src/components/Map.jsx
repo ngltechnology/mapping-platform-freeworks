@@ -6,6 +6,7 @@ import { Link as RouterLink } from "react-router-dom"
 import { Link, Avatar, IconButton } from "@material-ui/core"
 import GrowCardContainer from "../containers/CardContainer.js"
 import FullScreenDialog from "./Dialog/"
+import BottomBar from "./BottomBar"
 
 const MAPBOX_TOKEN = process.env.REACT_APP_DEV_API_URL;
 
@@ -22,13 +23,14 @@ class Map extends React.Component{
       photoURL,
       markerClicked
     } = this.props
-    
+    const maptype = "streets"
+    const mapStyle = `mapbox://styles/mapbox/${maptype}-v10`
     return (
-      <div> 
+      <React.Fragment> 
         <ReactMapGL
-          style={{textAlign:"left"}}
+          style={{textAlign:"left",height:"100%"}}
           {...map.viewport}
-          mapStyle="mapbox://styles/mapbox/streets-v10"
+          mapStyle={mapStyle}
           onViewportChange={viewport=>on_viewport_change({viewport})}
           mapboxApiAccessToken={MAPBOX_TOKEN}
         >
@@ -50,7 +52,8 @@ class Map extends React.Component{
         </div>
         <GrowCardContainer />
         <FullScreenDialog />
-      </div>   
+        <BottomBar />
+      </React.Fragment>   
     )
   }
 }

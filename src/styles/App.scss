@@ -12,8 +12,14 @@ body{
 #root{
   overflow: hidden;
 }
+.app{
+  height: 100%;
+}
 .App{
   overflow: hidden;
+}
+.mapcontainer{
+  height: 100%;
 }
 .clear-button{
   position: relative;
@@ -32,4 +38,7 @@ body{
   transform: translateZ(0);
 }
 
-
+.bottombar{
+  bottom: 0;
+  height: 3vh;
+}
