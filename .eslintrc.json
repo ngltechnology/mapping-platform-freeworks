@@ -1,0 +1,19 @@
+{
+  "root": true,
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "plugins": ["react","react-redux"],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jquery": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "react/prop-types": "off",
+    "no-console":"off"
+  },
+  "parser": "babel-eslint"
+}
