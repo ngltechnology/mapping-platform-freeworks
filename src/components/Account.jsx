@@ -1,9 +1,9 @@
 import React from "react"
 import {
-  Typography,
+  //Typography,
   Card,
   Table,
-  TableHead,
+  //TableHead,
   TableCell,
   TableRow,
   TableBody,

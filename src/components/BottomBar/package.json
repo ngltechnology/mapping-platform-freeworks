@@ -2,5 +2,5 @@
   "name": "BottomBar",
   "version": 0,
   "private": true,
-  "main": "BottomBar.jsx"
+  "main": "BottomBarState.jsx"
 }

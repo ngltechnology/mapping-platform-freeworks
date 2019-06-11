@@ -15,7 +15,7 @@ export default () => {
     <React.Fragment className="appcontainer">
       <Route path='/login' component={Auth} />
       <Route path='/start' component={Authentiacation} />
-      <Route exact path="/" component={()=><Redirect to="/map" />} />
+      <Route exact path="/" component={()=><Redirect to="/login" />} />
       <Route path="/map" component={MapContainer} />
       <Route path="/account" component={AccountContainer} />
     </React.Fragment>

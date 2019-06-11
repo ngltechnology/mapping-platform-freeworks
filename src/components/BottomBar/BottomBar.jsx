@@ -14,12 +14,11 @@ const useStyles = makeStyles({
   },
 });
 
-export default function BottomBar() {
+export default function BottomBar({handle_change,value}) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-
-  function handleChange(event, newValue) {
-    setValue(newValue);
+  console.log(value)
+  const handleChange = (event, newValue) => {
+    handle_change(newValue)
   }
 
   return (

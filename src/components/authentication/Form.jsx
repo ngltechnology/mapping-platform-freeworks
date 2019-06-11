@@ -92,20 +92,23 @@ export const StepThird = connect(
 				variant="outlined"
 				label="銀行名"
 				onChange={handleChange}
-				margin="normal"
+        margin="normal"
+        fullWidth
 			/>
 			<TextField
 				variant="outlined"
 				label="支店名"
 				onChange={handleChange}
-				margin="normal"
+        margin="normal"
+        fullWidth
 			/>
 			<TextField
 				type="number"
 				variant="outlined"
 				label="口座番号"
 				onChange={handleChange}
-				margin="normal"
+        margin="normal"
+        fullWidth
 			/>
 		</React.Fragment>
 	)

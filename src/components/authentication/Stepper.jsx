@@ -63,10 +63,7 @@ ProgressMobileStepper.propTypes = {
   theme: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({})
-const mapDispatchToProps = dispatch => ({})
+//const mapStateToProps = state => ({})
+//const mapDispatchToProps = dispatch => ({})
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(withStyles(styles, { withTheme: true })(ProgressMobileStepper));
+export default connect()(withStyles(styles, { withTheme: true })(ProgressMobileStepper));
