@@ -28,8 +28,8 @@ export default function BottomBar() {
         value={value}
         onChange={handleChange}
         variant="fullWidth"
-        indicatorColor="secondary"
-        textColor="secondary"
+        indicatorColor="primary"
+        textColor="primary"
       >
         <Tab icon={<PhoneIcon />} label="RECENTS" />
         <Tab icon={<FavoriteIcon />} label="FAVORITES" />

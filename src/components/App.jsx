@@ -4,7 +4,7 @@ import '../styles/App.scss';
 import Auth from './Auth.jsx'
 import AccountContainer from "../containers/AccountContainer"
 import MapContainer from "../containers/MapContainer"
-import Authentiacation from "./authentication/Authentication"
+import Authentiacation from "./authentication"
 
 /* eslint-disable-nextline */
 require('dotenv').config()

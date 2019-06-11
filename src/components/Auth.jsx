@@ -17,8 +17,7 @@ class Auth extends Component {
 
   render(){
     return (
-      <div>
-        
+      <div>        
         {this.props.isAuth 
           ? (
             <Button
@@ -28,14 +27,17 @@ class Auth extends Component {
             >
               START UP
             </Button>
-          )
-            : <Button
+            )
+            : 
+            (<Button
                 variant="outlined"
                 onClick={this.props.push}
                 color="primary"
                 margin="normal"
-              />
-              }
+              >
+              START UP
+            </Button>
+        )}
       </div>
     )
   }
