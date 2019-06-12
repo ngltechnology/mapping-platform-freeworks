@@ -3,19 +3,19 @@ import BottomBar from "./BottomBar.jsx"
 
 export const HANDLE_CHANGE = "HANDLE_CHANGE"
 
-export const handle_change = value => ({
+export const handle_change = barValue => ({
   type: HANDLE_CHANGE,
-  value,
+  barValue,
 })
 
 const initialState = {
-  value: 0,
+  barValue: 0,
 }
 export const bottombar = (state=initialState, action) => {
   switch(action.type){
     case HANDLE_CHANGE:
       return Object.assign({},{
-        value: action.value,
+        barValue: action.barValue,
       })
     default:
       return state;
@@ -23,10 +23,15 @@ export const bottombar = (state=initialState, action) => {
 }
 
 const mapStateToProps = state => ({
-  value: state.bottombar.value,
+  barValue: state.bottombar.barValue,
 })
+
 const mapDispatchToProps = dispatch => ({
-  handle_change: value => dispatch(handle_change(value)),
+  handle_change: barValue => dispatch(handle_change(barValue)),
 })
-const BottomBarContainer = connect(mapStateToProps, mapDispatchToProps)(BottomBar)
+
+const BottomBarContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+  )(BottomBar)
 export default BottomBarContainer;

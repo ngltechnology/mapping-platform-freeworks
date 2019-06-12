@@ -14,17 +14,19 @@ const useStyles = makeStyles({
   },
 });
 
-export default function BottomBar({handle_change,value}) {
+ const BottomBar = props => {
+   
   const classes = useStyles();
-  console.log(value)
+  console.log(props.barValue)
+
   const handleChange = (event, newValue) => {
-    handle_change(newValue)
+    props.handle_change(newValue)
   }
 
   return (
     <Paper square className={classes.root}>
       <Tabs
-        value={value}
+        value={props.barValue}
         onChange={handleChange}
         variant="fullWidth"
         indicatorColor="primary"
@@ -37,3 +39,4 @@ export default function BottomBar({handle_change,value}) {
     </Paper>
   );
 }
+export default BottomBar;
