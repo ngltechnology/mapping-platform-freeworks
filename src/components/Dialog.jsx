@@ -27,11 +27,11 @@ class FullScreenDialog extends React.Component {
   
   render() {
     const {
-      dialogtitle,
       classes,
       dialogOff,
       open,
-      contentsURL
+      dialogTitle,
+      dialogURL
     } = this.props;
     return (
       <div>
@@ -47,7 +47,7 @@ class FullScreenDialog extends React.Component {
                 <CloseIcon />
               </IconButton>
               <Typography variant="h6" color="inherit" className={classes.flex}>
-                {dialogtitle}
+                {dialogTitle}
               </Typography>
             </Toolbar>
           </AppBar>
@@ -56,7 +56,7 @@ class FullScreenDialog extends React.Component {
               title="Dialog Window"
               width="100%"
               height="100%"
-              src={contentsURL}/>
+              src={dialogURL}/>
           </div>
         </Dialog>
       </div>
