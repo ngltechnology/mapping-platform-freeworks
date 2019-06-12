@@ -4,7 +4,9 @@ const initialState = {
   key: null,
   name: "情報を取得できませんでした",
   photoURL: "url not found",
+  tags: [],
   reward: null,
+  contentsURL: null,
 }
 
 export default (state=initialState, action) => {
@@ -14,7 +16,10 @@ export default (state=initialState, action) => {
         key: action.quest.key,
         name: action.quest.name,
         photoURL: action.quest.photoURL,
+        tags: action.quest.tags,
         reward: action.quest.reward,
+        contentsURL: action.quest.contentsURL,
+        homepageURL: action.quest.homepageURL,
       })
     default:
       return state;

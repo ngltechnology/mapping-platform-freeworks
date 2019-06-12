@@ -21,7 +21,8 @@ const GrowCard = ({
   name,
   rewards,
   photoURL,
-  dialogOn
+  dialogOn,
+  tags
 }) => (
   <React.Fragment>
     <Grow
@@ -55,8 +56,14 @@ const GrowCard = ({
               Lizard
             </Typography>
             <div className={classes.chips}>
-              <Chip label="friendly" />
-              <Chip label="飲食店" />
+              {tags===[]
+                ?
+                tags.map((item, index) => (
+                <Chip key={index} label={item} />
+                ))
+                :
+                console.log("tags is []")
+              }
             </div>
           </CardContent>
         </CardActionArea>

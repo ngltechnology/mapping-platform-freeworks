@@ -1,7 +1,8 @@
 import { connect } from "react-redux"
 //import { withRouter } from "react-router-dom"
 import GrowCard from "../components/Card.jsx"
-import { cardOff, dialog_on } from "../actions"
+import { dialog_on } from "../actions/dialog"
+import { cardOff } from "../actions/index.js";
 
 const mapStateToProps = state => ({
   checked: state.card.checked,
