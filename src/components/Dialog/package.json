@@ -1,6 +1,0 @@
-{
-  "name": "dialog",
-  "version": 0,
-  "private": "true",
-  "main": "DialogState.js"
-}

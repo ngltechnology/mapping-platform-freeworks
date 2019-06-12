@@ -5,6 +5,7 @@ const initialState = {
   name: "情報を取得できませんでした",
   photoURL: "url not found",
   reward: null,
+  contentsURL: null,
 }
 
 export default (state=initialState, action) => {
@@ -15,6 +16,7 @@ export default (state=initialState, action) => {
         name: action.quest.name,
         photoURL: action.quest.photoURL,
         reward: action.quest.reward,
+        contentsURL: action.quest.contentsURL,
       })
     default:
       return state;

@@ -13,7 +13,7 @@ import { Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 import FullScreenDialog from "../Dialog"
 import { step_increment, step_decrement } from "./AuthenticationState"
 import { StepFirst, StepSecond, StepThird } from "./Form"
-import { dialog_on } from '../../actions';
+import { dialog_on } from '../../actions/dialog';
 import { push } from "connected-react-router"
 
 const styles = theme => ({

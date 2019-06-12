@@ -7,8 +7,8 @@ import quests from "./quests"
 import quest from "./quest"
 import auth from "./auth"
 import map from "./UserMap.js"
-import dialog from "./dialog.js"
-import { bottombar } from "../components/BottomBar/BottomBarState.js"
+import dialog from "./dialog"
+import bottombar from "./bottombar"
 
 export default history => combineReducers({
   router: connectRouter(history),
