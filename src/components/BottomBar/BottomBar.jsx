@@ -15,14 +15,10 @@ const useStyles = makeStyles({
 });
 
  const BottomBar = props => {
-   
   const classes = useStyles();
-  console.log(props.barValue)
-
   const handleChange = (event, newValue) => {
     props.handle_change(newValue)
   }
-
   return (
     <Paper square className={classes.root}>
       <Tabs
