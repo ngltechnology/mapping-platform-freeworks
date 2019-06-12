@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+//import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -26,7 +26,13 @@ function Transition(props) {
 class FullScreenDialog extends React.Component {
   
   render() {
-    const { classes, dialogOff, open, component } = this.props;
+    const {
+      dialogtitle,
+      classes,
+      dialogOff,
+      open,
+      contentsURL
+    } = this.props;
     return (
       <div>
         <Dialog
@@ -41,15 +47,16 @@ class FullScreenDialog extends React.Component {
                 <CloseIcon />
               </IconButton>
               <Typography variant="h6" color="inherit" className={classes.flex}>
-                Sound
+                {dialogtitle}
               </Typography>
-              <Button color="inherit" onClick={dialogOff}>
-                save
-              </Button>
             </Toolbar>
           </AppBar>
           <div style={{height:"100%",width:"100%"}}>
-            {component}
+            <iframe
+              title="Dialog Window"
+              width="100%"
+              height="100%"
+              src={contentsURL}/>
           </div>
         </Dialog>
       </div>

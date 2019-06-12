@@ -1,6 +1,6 @@
 {
-  "name": "BottomBar",
-  "version": 0,
+  "name": "bottombar",
+  "version": "0",
   "private": true,
-  "main": "BottomBar.jsx"
+  "main": "BottomBarState.js"
 }

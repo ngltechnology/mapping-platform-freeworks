@@ -6,7 +6,7 @@ import { Link as RouterLink } from "react-router-dom"
 import { Link, Avatar, IconButton } from "@material-ui/core"
 import GrowCardContainer from "../containers/CardContainer.js"
 import FullScreenDialog from "./Dialog/"
-import BottomBar from "./BottomBar"
+import BottomBarContainer from "./BottomBar"
 
 const MAPBOX_TOKEN = process.env.REACT_APP_DEV_API_URL;
 
@@ -52,7 +52,7 @@ class Map extends React.Component{
         </div>
         <GrowCardContainer />
         <FullScreenDialog />
-        <BottomBar />
+        <BottomBarContainer />
       </React.Fragment>   
     )
   }

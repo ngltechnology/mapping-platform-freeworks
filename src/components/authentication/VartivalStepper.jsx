@@ -132,14 +132,22 @@ class VerticalLinearStepper extends React.Component {
               >
               利用規約
             </Button>
+            <div>
+            <Button
+              onClick={handleBack}
+              className={classes.button}
+            >
+              Back
+            </Button>
             <Button
               variant="outlined"
               color="primary"
               onClick={push}
               className={classes.button}
             >
-              ポリシーに同意の上保存
+              ポリシーに同意し次へ
             </Button>
+            </div>
           </Paper>
         )}
         <FullScreenDialog />
