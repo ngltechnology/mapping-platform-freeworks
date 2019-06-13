@@ -5,7 +5,7 @@ import { dialog_off, dialog_on } from "../actions/dialog";
 const mapStateToProps = state => ({
   open: state.dialog.open,
   dialogTitle: state.dialog.dialogTitle,
-  dialogURL: state.dialog.contentsURL,
+  dialogURL: state.dialog.dialogURL,
 })
 const mapStateToProps2 = state => ({
   open: state.dialog.open,

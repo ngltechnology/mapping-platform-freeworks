@@ -87,13 +87,13 @@ const styles = {
     height: "20vh"
   },
   CardContent: {
-    height: "15vh",
+    height: "10vh",
   },
   chips: {
     textAlign: "left",
   },
   buttonArea: {
-    height: "5vh",
+    height: "3vh",
     textAlign: "right",
     bottom: 0,
     margin: 0,

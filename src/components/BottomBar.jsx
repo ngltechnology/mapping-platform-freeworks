@@ -28,9 +28,9 @@ const useStyles = makeStyles({
         indicatorColor="primary"
         textColor="primary"
       >
-        <Tab icon={<PhoneIcon />} label="RECENTS" />
-        <Tab icon={<FavoriteIcon />} label="FAVORITES" />
-        <Tab icon={<PersonPinIcon />} label="NEARBY" />
+        <Tab icon={<PhoneIcon />} label="MAP" />
+        <Tab icon={<FavoriteIcon />} label="SCHEDULE" />
+        <Tab icon={<PersonPinIcon />} label="ACCOUNT" />
       </Tabs>
     </Paper>
   );

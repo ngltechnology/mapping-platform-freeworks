@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { Table, TableBody, TableRow, TableCell } from '@material-ui/core'
-import FullScreenDialog from "../Dialog"
+import { DialogContainer } from "../../containers/DialogContainer.js"
 import { step_increment, step_decrement } from "./AuthenticationState"
 import { StepFirst, StepSecond, StepThird } from "./Form"
 import { dialog_on } from '../../actions/dialog';
@@ -122,13 +122,13 @@ class VerticalLinearStepper extends React.Component {
             </Table>
             <Button
               color="primary"
-              onClick={this.props.dialogOn}
+              onClick={this.props.OpenPolicy1}
               >
               プライバシーポリシー
             </Button>
             <Button
               color="primary"
-              onClick={this.props.dialogOn}
+              onClick={this.props.OpenPolicy2}
               >
               利用規約
             </Button>
@@ -150,7 +150,7 @@ class VerticalLinearStepper extends React.Component {
             </div>
           </Paper>
         )}
-        <FullScreenDialog />
+        <DialogContainer />
       </div>
     );
   }
@@ -165,10 +165,17 @@ const mapStateToProps = state => ({
   infomations: state.authentication.form,
 })
 const mapDispatchToProps = dispatch => ({
-  handleNext: () => dispatch(step_increment()),
-  handleBack: () => dispatch(step_decrement()),
-  dialogOn: () => dispatch(dialog_on()),
-  push: () => dispatch(push("/map")),
+    handleNext: () => dispatch(step_increment()),
+    handleBack: () => dispatch(step_decrement()),
+    OpenPolicy1: () => dispatch(dialog_on({
+      name: "プライバシーポリシー",
+      url: ""
+    })),
+    OpenPolicy2: () => dispatch(dialog_on({
+      name: "利用規約",
+      url: ""
+    })),
+    push: () => dispatch(push("/map")),
 })
 
 export default connect(
