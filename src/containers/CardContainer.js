@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 //import { withRouter } from "react-router-dom"
 import GrowCard from "../components/Card.jsx"
-import { dialog_on } from "../actions/dialog"
+import { card_dialog_on } from "../actions/dialog"
 import { cardOff } from "../actions/index.js";
 
 const mapStateToProps = state => ({
@@ -14,7 +14,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   handleOff: () => dispatch(cardOff()),
-  dialogOn: () => dispatch(dialog_on())
+  dialogOn: () => dispatch(card_dialog_on())
 })
 
 const GrowCardContainer = connect(
