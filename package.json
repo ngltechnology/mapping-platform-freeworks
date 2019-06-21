@@ -2,6 +2,7 @@
   "name": "maps-platform-freeworks",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "dependencies": {
     "@date-io/core": "^1.3.6",
     "@firebase/app-types": "^0.3.10",
