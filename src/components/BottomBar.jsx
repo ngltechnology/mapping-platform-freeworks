@@ -17,7 +17,24 @@ const useStyles = makeStyles({
 const BottomBar = props => {
   const classes = useStyles();
   const handleChange = (event, newValue) => {
-    props.handle_change(newValue)
+    switch(newValue){
+      case 0:
+        console.log(1)
+        props.pushMap()
+        props.handle_change(newValue)
+        break;
+      case 1:
+        props.pushSchedule()
+        props.handle_change(newValue)
+        break;
+      case 2:
+        props.pushAccount()
+        props.handle_change(newValue)
+        break
+      default:
+        props.handle_change(newValue)
+        break
+    }
   }
   return (
     <Paper square className={classes.root}>
