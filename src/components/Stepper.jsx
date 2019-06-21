@@ -1,5 +1,5 @@
 import React from 'react';
-import connect from 'react-redux'
+// import connect from 'react-redux'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
@@ -63,7 +63,7 @@ ProgressMobileStepper.propTypes = {
   theme: PropTypes.object.isRequired,
 };
 
-//const mapStateToProps = state => ({})
-//const mapDispatchToProps = dispatch => ({})
-
-export default connect()(withStyles(styles, { withTheme: true })(ProgressMobileStepper));
+export default withStyles(
+  styles,
+  { withTheme: true }
+  )(ProgressMobileStepper);

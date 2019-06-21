@@ -18,14 +18,14 @@ class Auth extends Component {
   render(){
     return (
       <div>        
-        {this.props.isAuth 
+        {this.props.uid===null 
           ? (
             <Button
               variant="outlined"
               onClick={this.props.doLogin}
               color="primary"
             >
-              START UP
+              SIGN IN
             </Button>
             )
             : 
@@ -44,7 +44,7 @@ class Auth extends Component {
 }
 
 const mapStateToProps = state => ({
-  isAuth: state.isAuth
+  uid: state.auth.uid,
 })
 const mapDispatchToProps = dispatch => {
   return {

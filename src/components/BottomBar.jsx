@@ -3,9 +3,9 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import PhoneIcon from '@material-ui/icons/Phone';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import PersonPinIcon from '@material-ui/icons/PersonPin';
+import PlaceIcon from '@material-ui/icons/Place';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const useStyles = makeStyles({
   root: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
 });
 
- const BottomBar = props => {
+const BottomBar = props => {
   const classes = useStyles();
   const handleChange = (event, newValue) => {
     props.handle_change(newValue)
@@ -28,11 +28,11 @@ const useStyles = makeStyles({
         indicatorColor="primary"
         textColor="primary"
       >
-        <Tab icon={<PhoneIcon />} label="MAP" />
-        <Tab icon={<FavoriteIcon />} label="SCHEDULE" />
-        <Tab icon={<PersonPinIcon />} label="ACCOUNT" />
+        <Tab icon={<PlaceIcon />} label="MAP" />
+        <Tab icon={<CalendarTodayIcon />} label="SCHEDULE" />
+        <Tab icon={<AccountCircleIcon />} label="ACCOUNT" />
       </Tabs>
     </Paper>
   );
-}
+ }
 export default BottomBar;

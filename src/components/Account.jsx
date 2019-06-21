@@ -64,8 +64,12 @@ const styles = {
 }
 
 const Account = props => {
-  const { classes } = props
-  const dummyurl = "https://material-ui.com/static/images/avatar/1.jpg"
+  const {
+    classes,
+    photoURL,
+    displayName,
+  } = props
+  // const dummyurl = "https://material-ui.com/static/images/avatar/1.jpg"
   return(
     <React.Fragment>
       <div className={classes.header}>
@@ -73,11 +77,12 @@ const Account = props => {
           <Avatar className={classes.leftAvatar} src="../images/account/graph.png" />
         </IconButton>
         <IconButton className={classes.centerButton}>
-          <Avatar className={classes.centerAvatar} src={dummyurl} />
+          <Avatar className={classes.centerAvatar} src={photoURL} />
         </IconButton>
         <IconButton className={classes.rightButton}>
           <Avatar className={classes.rightAvatar} >R</Avatar>
         </IconButton>
+        {displayName}
       </div>
       <div className={classes.bottom}>
         <Card className={classes.card}>

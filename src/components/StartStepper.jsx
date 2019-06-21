@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from "react-redux"
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
@@ -10,11 +9,8 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { Table, TableBody, TableRow, TableCell } from '@material-ui/core'
-import { DialogContainer } from "../../containers/DialogContainer.js"
-import { step_increment, step_decrement } from "./AuthenticationState"
+import { DialogContainer } from "../containers/DialogContainer.js"
 import { StepFirst, StepSecond, StepThird } from "./Form"
-import { dialog_on } from '../../actions/dialog';
-import { push } from "connected-react-router"
 
 const styles = theme => ({
   root: {
@@ -22,19 +18,19 @@ const styles = theme => ({
     height: '100vh'
   },
   button: {
-    marginTop: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    marginTop: theme.spacing(),
+    marginRight: theme.spacing(),
   },
   actionsContainer: {
-    marginBottom: theme.spacing.unit * 2,
+    marginBottom: theme.spacing(2),
   },
   resetContainer: {
-    padding: theme.spacing.unit * 3,
+    padding: theme.spacing(3),
   },
 });
 
 function getSteps() {
-  return ['基本の情報の入力しよう！', '詳しい情報入力！', '支払い情報'];
+  return ['基本情報', '詳細情報', '支払い情報'];
 }
 
 function getStepContent(step) {
@@ -50,7 +46,7 @@ function getStepContent(step) {
   }
 }
 
-class VerticalLinearStepper extends React.Component {
+class StartStepper extends React.Component {
   render() {
     const {
       classes,
@@ -99,17 +95,22 @@ class VerticalLinearStepper extends React.Component {
             <Table>
               <TableBody>
                 <TableRow>
-                  <TableCell>name</TableCell>
+                  <TableCell>お名前</TableCell>
                   <TableCell>{infomations.name}</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell>name</TableCell>
-                  <TableCell>{infomations.name}</TableCell>
+                  <TableCell>電話番号</TableCell>
+                  <TableCell>{infomations.number}</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell>name</TableCell>
-                  <TableCell>{infomations.name}</TableCell>
+                  <TableCell>住所１</TableCell>
+                  <TableCell>{infomations.address1}</TableCell>
                 </TableRow>
+                <TableRow>
+                  <TableCell>住所２</TableCell>
+                  <TableCell>{infomations.address2}</TableCell>
+                </TableRow>
+                <p>詳細入力</p>
                 <TableRow>
                   <TableCell>name</TableCell>
                   <TableCell>{infomations.name}</TableCell>
@@ -156,29 +157,8 @@ class VerticalLinearStepper extends React.Component {
   }
 }
 
-VerticalLinearStepper.propTypes = {
+StartStepper.propTypes = {
   classes: PropTypes.object,
 };
 
-const mapStateToProps = state => ({
-  activeStep: state.authentication.activeStep,
-  infomations: state.authentication.form,
-})
-const mapDispatchToProps = dispatch => ({
-    handleNext: () => dispatch(step_increment()),
-    handleBack: () => dispatch(step_decrement()),
-    OpenPolicy1: () => dispatch(dialog_on({
-      name: "プライバシーポリシー",
-      url: ""
-    })),
-    OpenPolicy2: () => dispatch(dialog_on({
-      name: "利用規約",
-      url: ""
-    })),
-    push: () => dispatch(push("/map")),
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(withStyles(styles)(VerticalLinearStepper));
+export default withStyles(styles)(StartStepper)

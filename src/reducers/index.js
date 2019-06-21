@@ -1,7 +1,7 @@
 import { combineReducers } from "redux"
 import { connectRouter } from 'connected-react-router'
 
-import authentication from "../components/authentication/AuthenticationState"
+import authentication from "./authentication"
 import card from "./card"
 import quests from "./quests"
 import quest from "./quest"
