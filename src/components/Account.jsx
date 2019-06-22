@@ -12,7 +12,6 @@ import {
   withStyles
 } from "@material-ui/core";
 import "../styles/Account.scss"
-import BottomBarContainer from "../containers/BottomBarContainer.js"
 
 const styles = {
   wrapper: {
@@ -61,10 +60,6 @@ const styles = {
   bottom: {
     top: "30vh"
   },
-  bottomber: {
-    bottom: 0,
-    position: "absolute",
-  }
 }
 
 const Account = props => {
@@ -104,7 +99,6 @@ const Account = props => {
           </Table>
         </Card>
       </div>
-      <BottomBarContainer class={classes.bottombar}/>
     </div>
   )
 }

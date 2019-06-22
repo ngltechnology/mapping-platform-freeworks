@@ -9,9 +9,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   handle_change: barValue => dispatch(handle_change(barValue)),
-  pushMap: () => dispatch(push("/map")),
-  pushSchedule: () => dispatch(push("/schedule")),
-  pushAccount: () => dispatch(push("/account"))
+  pushMap: () => dispatch(push("/app/map")),
+  pushSchedule: () => dispatch(push("/app/schedule")),
+  pushAccount: () => dispatch(push("/app/account"))
 })
 
 const BottomBarContainer = connect(
