@@ -9,7 +9,7 @@ const Routing = () => (
     <Route path='/login' component={Auth} />
     <Route path='/start' component={StartStepper} />
     <Route exact path="/" component={()=><Redirect to="/login" />} />
-    <Route to="/app" component={AppContainer}/>
+    <Route path="/app" component={AppContainer}/>
   </Fragment>
 )
 export default Routing;

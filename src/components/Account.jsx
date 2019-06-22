@@ -9,13 +9,14 @@ import {
   TableBody,
   Avatar,
   IconButton,
-  withStyles
+  withStyles,
+  Divider
 } from "@material-ui/core";
 import "../styles/Account.scss"
 
 const styles = {
   wrapper: {
-    height: "100vh",
+    height: "90vh",
     position: "relative",
     boxSizing: "border-box",
   },
@@ -91,10 +92,13 @@ const Account = props => {
               <TableRow>
                 <TableCell>Timeline</TableCell>
                 <TableCell>ここに通知</TableCell>
-                {notifications.map((notice, index) => (
-                  <TableCell key={index}>{notice}</TableCell>
-                ))}
               </TableRow>
+              {notifications.map((notice, index) => (
+                <TableRow key={index}>
+                  <Divider />
+                  <TableCell>{notice}</TableCell>
+                </TableRow>
+                ))}
             </TableBody>
           </Table>
         </Card>

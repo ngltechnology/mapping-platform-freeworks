@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => ({
       name: "利用規約",
       url: ""
     })),
-    push: () => dispatch(push("/map")),
+  push: () => dispatch(push("/app/map")),
 })
 
 const StepperContainer = connect(
