@@ -12,8 +12,14 @@ import {
   withStyles
 } from "@material-ui/core";
 import "../styles/Account.scss"
+import BottomBarContainer from "../containers/BottomBarContainer.js"
 
 const styles = {
+  wrapper: {
+    height: "100vh",
+    position: "relative",
+    boxSizing: "border-box",
+  },
   header: {
     backgroundColor: "black",
     height: "30vh",
@@ -55,11 +61,9 @@ const styles = {
   bottom: {
     top: "30vh"
   },
-  table: {
-    
-  },
-  card: {
-    
+  bottomber: {
+    bottom: 0,
+    position: "absolute",
   }
 }
 
@@ -70,8 +74,9 @@ const Account = props => {
     displayName,
   } = props
   // const dummyurl = "https://material-ui.com/static/images/avatar/1.jpg"
+  const notifications = ["通知！", "ここだよ", "helloworld"]
   return(
-    <React.Fragment>
+    <div className={classes.wrapper}>
       <div className={classes.header}>
         <IconButton className={classes.leftButton}>
           <Avatar className={classes.leftAvatar} src="../images/account/graph.png" />
@@ -86,18 +91,21 @@ const Account = props => {
       </div>
       <div className={classes.bottom}>
         <Card className={classes.card}>
-          
           <Table className={classes.table}>
             <TableBody>
               <TableRow>
                 <TableCell>Timeline</TableCell>
-                <TableCell></TableCell>
+                <TableCell>ここに通知</TableCell>
+                {notifications.map((notice, index) => (
+                  <TableCell key={index}>{notice}</TableCell>
+                ))}
               </TableRow>
             </TableBody>
           </Table>
         </Card>
       </div>
-    </React.Fragment>
+      <BottomBarContainer class={classes.bottombar}/>
+    </div>
   )
 }
 export default withStyles(styles)(Account);

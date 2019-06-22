@@ -1,6 +1,7 @@
 import React from "react"
 import ReactMapGL from "react-map-gl"
 import "../styles/Map.scss"
+import 'mapbox-gl/dist/mapbox-gl.css'
 import Pin from "./Pin.jsx"
 import { Link as RouterLink } from "react-router-dom"
 import { Link, Avatar, IconButton } from "@material-ui/core"
