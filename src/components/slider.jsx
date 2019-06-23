@@ -6,21 +6,26 @@ import Slider from '@material-ui/lab/Slider';
 
 const useStyles = makeStyles({
 	root: {
-    height: 300,
+    height: 400,
+    padding: "10px",
     position: "absolute",
     top: "30px",
     right: "20px"
   },
+  slider: {
+    height: 350,
+    margin: 10,
+  }
 })
 
-function valuetext(value) {
+const valuetext = (value) => {
   return `${value}°C`;
 }
 
 const marks = [
   {
     value: 0,
-    label: '0°C',
+    label: '今日',
   },
   {
     value: 20,
@@ -32,7 +37,7 @@ const marks = [
   },
   {
     value: 100,
-    label: '100°C',
+    label: '今日',
   },
 ];
 
@@ -44,8 +49,9 @@ const VarticalSlider = () => {
         Date
       </Typography>
       <Slider
+          className={classes.slider}
           orientation="vertical"
-          defaultValue={[20, 37]}
+          defaultValue={[20, 100]}
           aria-labelledby="vertical-slider"
           getAriaValueText={valuetext}
           marks={marks}
