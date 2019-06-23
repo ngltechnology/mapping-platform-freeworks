@@ -55,6 +55,7 @@ const VarticalSlider = () => {
           aria-labelledby="vertical-slider"
           getAriaValueText={valuetext}
           marks={marks}
+          step={10}
         />
     </Card>
   )
