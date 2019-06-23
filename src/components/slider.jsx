@@ -29,7 +29,7 @@ const marks = [
   },
   {
     value: 20,
-    label: '20°C',
+    label: '20',
   },
   {
     value: 37,
@@ -37,7 +37,7 @@ const marks = [
   },
   {
     value: 100,
-    label: '今日',
+    label: '七日後',
   },
 ];
 
