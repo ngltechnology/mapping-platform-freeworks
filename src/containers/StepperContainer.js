@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => ({
     handleBack: () => dispatch(step_decrement()),
     OpenPolicy1: () => dispatch(dialog_on({
       name: "プライバシーポリシー",
-      url: ""
+      url: "https://firebasestorage.googleapis.com/v0/b/freeworks-9bb68.appspot.com/o/public%2Fprivacypolicy.pdf?alt=media&token=2d81d0b2-5bca-43ad-ab9f-d86bfac7e7fa",
     })),
     OpenPolicy2: () => dispatch(dialog_on({
       name: "利用規約",
