@@ -1,17 +1,16 @@
 import React from "react"
 import ReactMapGL from "react-map-gl"
 import "../styles/Map.scss"
+import 'mapbox-gl/dist/mapbox-gl.css'
 import Pin from "./Pin.jsx"
-import { Link as RouterLink } from "react-router-dom"
-import { Link, Avatar, IconButton } from "@material-ui/core"
 import GrowCardContainer from "../containers/CardContainer.js"
-import BottomBarContainer from "../containers/BottomBarContainer"
+import VarticalSlider from "./slider.jsx"
 import { DialogContainer2 } from "../containers/DialogContainer";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_DEV_API_URL;
 
 class Map extends React.Component{
-  componentDidMount(){
+  componentDidMount() {
     this.props.actionFirestore()
     this.props.locate_user()
   }
@@ -20,7 +19,7 @@ class Map extends React.Component{
       on_viewport_change,
       map,
       quests,
-      photoURL,
+      // photoURL,
       markerClicked
     } = this.props
     const maptype = "streets"
@@ -43,16 +42,9 @@ class Map extends React.Component{
             />))
           : console.log("quests is not object") }  
         </ReactMapGL>
-        <div className="avatarContain">
-          <Link component={RouterLink} to="/account">
-            <IconButton className="avatar">
-              <Avatar className="avatar" src={photoURL} />
-            </IconButton>
-          </Link>
-        </div>
         <GrowCardContainer />
+        <VarticalSlider />
         <DialogContainer2 />
-        <BottomBarContainer />
       </React.Fragment>   
     )
   }

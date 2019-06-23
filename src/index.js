@@ -10,7 +10,7 @@ import { routerMiddleware, ConnectedRouter } from 'connected-react-router'
 import { Switch } from "react-router-dom"
 import { MuiThemeProvider } from "@material-ui/core/styles"
 import theme from "./styles/theme"
-import App from "./components/App"
+import Routing from "./components/Route.jsx"
 import rootReducers from "./reducers"
 import './styles/index.scss';
 import * as serviceWorker from './serviceWorker';
@@ -37,7 +37,7 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <MuiThemeProvider theme={theme}>
         <Switch>
-          <App />
+          <Routing />
         </Switch>
       </MuiThemeProvider>
     </ConnectedRouter>

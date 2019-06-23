@@ -1,10 +1,9 @@
 import React from 'react';
-import { Route, Redirect } from "react-router-dom"
-import '../styles/App.scss';
-import Auth from './Auth.jsx'
+import { Route } from "react-router-dom"
+import '../styles/App.scss'
 import AccountContainer from "../containers/AccountContainer"
 import MapContainer from "../containers/MapContainer"
-import Authentiacation from "./authentication"
+import BottomBar from "../containers/BottomBarContainer.js"
 
 /* eslint-disable-nextline */
 require('dotenv').config()
@@ -12,11 +11,12 @@ require('dotenv').config()
 // eslint-disable-next-line react/display-name
 export default () => {
   return(
-    <React.Fragment className="appcontainer">
-      <Route path='/login' component={Auth} />
-      <Route path='/start' component={Authentiacation} />
-      <Route exact path="/" component={()=><Redirect to="/login" />} />
-      <Route path="/map" component={MapContainer} />
-      <Route path="/account" component={AccountContainer} />
+    <React.Fragment>
+      <Route path="/app/map" component={MapContainer} />
+      <Route path="/app/account" component={AccountContainer} />
+      <BottomBar style={{
+        position: "fixed",
+        bottom: 0,
+      }} />
     </React.Fragment>
 )}

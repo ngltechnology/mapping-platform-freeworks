@@ -9,11 +9,17 @@ import {
   TableBody,
   Avatar,
   IconButton,
-  withStyles
+  withStyles,
+  Divider
 } from "@material-ui/core";
 import "../styles/Account.scss"
 
 const styles = {
+  wrapper: {
+    height: "90vh",
+    position: "relative",
+    boxSizing: "border-box",
+  },
   header: {
     backgroundColor: "black",
     height: "30vh",
@@ -55,44 +61,49 @@ const styles = {
   bottom: {
     top: "30vh"
   },
-  table: {
-    
-  },
-  card: {
-    
-  }
 }
 
 const Account = props => {
-  const { classes } = props
-  const dummyurl = "https://material-ui.com/static/images/avatar/1.jpg"
+  const {
+    classes,
+    photoURL,
+    displayName,
+  } = props
+  // const dummyurl = "https://material-ui.com/static/images/avatar/1.jpg"
+  const notifications = ["通知！", "ここだよ", "helloworld"]
   return(
-    <React.Fragment>
+    <div className={classes.wrapper}>
       <div className={classes.header}>
         <IconButton className={classes.leftButton}>
           <Avatar className={classes.leftAvatar} src="../images/account/graph.png" />
         </IconButton>
         <IconButton className={classes.centerButton}>
-          <Avatar className={classes.centerAvatar} src={dummyurl} />
+          <Avatar className={classes.centerAvatar} src={photoURL} />
         </IconButton>
         <IconButton className={classes.rightButton}>
           <Avatar className={classes.rightAvatar} >R</Avatar>
         </IconButton>
+        {displayName}
       </div>
       <div className={classes.bottom}>
         <Card className={classes.card}>
-          
           <Table className={classes.table}>
             <TableBody>
               <TableRow>
                 <TableCell>Timeline</TableCell>
-                <TableCell></TableCell>
+                <TableCell>ここに通知</TableCell>
               </TableRow>
+              {notifications.map((notice, index) => (
+                <TableRow key={index}>
+                  <Divider />
+                  <TableCell>{notice}</TableCell>
+                </TableRow>
+                ))}
             </TableBody>
           </Table>
         </Card>
       </div>
-    </React.Fragment>
+    </div>
   )
 }
 export default withStyles(styles)(Account);
