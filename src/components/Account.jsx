@@ -12,6 +12,7 @@ import {
   withStyles,
   Divider
 } from "@material-ui/core";
+import MoreVertIcon from "@material-ui/icons/MoreVert"
 import "../styles/Account.scss"
 
 const styles = {
@@ -63,19 +64,22 @@ const styles = {
   },
 }
 
-const Account = props => {
-  const {
-    classes,
-    photoURL,
-    displayName,
-  } = props
+const Account = ({
+  classes,
+  photoURL,
+  displayName,
+  doLogout, 
+})=> {
   // const dummyurl = "https://material-ui.com/static/images/avatar/1.jpg"
   const notifications = ["通知！", "ここだよ", "helloworld"]
   return(
     <div className={classes.wrapper}>
+      <IconButton onClick={doLogout} className={classes.menuIcon}>
+        <MoreVertIcon />
+      </IconButton>
       <div className={classes.header}>
         <IconButton className={classes.leftButton}>
-          <Avatar className={classes.leftAvatar} src="../images/account/graph.png" />
+          <Avatar className={classes.leftAvatar} src="../images/account/graph.png"/>
         </IconButton>
         <IconButton className={classes.centerButton}>
           <Avatar className={classes.centerAvatar} src={photoURL} />

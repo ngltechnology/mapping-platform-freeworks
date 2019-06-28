@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from "react-router-dom"
 import { connect } from "react-redux"
-import { Button } from "@material-ui/core"
+import { Button, CircularProgress } from "@material-ui/core"
 import { push } from "connected-react-router"
 
 import { loginOk } from '../actions/auth'
@@ -14,10 +14,27 @@ class Auth extends Component {
   componentDidMount() {
     this.props.refLogin()
   }
-
+  
   render(){
+    const styles = {
+    sprit: {
+      backgroundColor: "#060A27",
+      height: "100vh"
+    },
+    progress: {
+      textAlign: "center",
+      top: "50vh"
+    },
+    logo: {
+      width: "70vw",
+      height: "70vw"
+    }
+  }
+
     return (
-      <div>        
+      <div style={styles.sprit}>
+        <img src="/src/images/FREEWORKS_bb.png" styles={styles.logo} />
+        <CircularProgress style={styles.progress}/>
         {this.props.uid===null 
           ? (
             <Button
@@ -28,16 +45,8 @@ class Auth extends Component {
               SIGN IN
             </Button>
             )
-            : 
-            (<Button
-                variant="outlined"
-                onClick={this.props.push}
-                color="primary"
-                margin="normal"
-              >
-              START UP
-            </Button>
-        )}
+            : this.props.pushApp()
+        }
       </div>
     )
   }
@@ -68,7 +77,8 @@ const mapDispatchToProps = dispatch => {
           dispatch(loginOk(user))
         })
       })
-    }
+    },
+    pushApp: () => dispatch(push("/app/map"))
   }
 }
 export default withRouter(connect(

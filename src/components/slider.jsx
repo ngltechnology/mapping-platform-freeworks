@@ -1,63 +1,62 @@
-import React from "react"
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Card from "@material-ui/core/Card"
+// import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/lab/Slider';
 
-const useStyles = makeStyles({
-	root: {
-    height: 400,
-    padding: "10px",
+const useStyles = makeStyles(() => ({
+  root: {
+    width: "80vw",
     position: "absolute",
-    top: "30px",
-    right: "20px"
-  },
-  slider: {
-    height: 350,
-    margin: 10,
+    left: "10vw",
+    top: "8vh"
   }
-})
-
-const valuetext = (value) => {
-  return `${value}°C`;
-}
+}))
 
 const marks = [
   {
     value: 0,
-    label: '今日',
+    label: 'today',
   },
-  {
-    value: 20,
-    label: '20',
-  },
-  {
-    value: 37,
-    label: '37°C',
-  },
+  {value: 10,},
+  {value: 20,},
+  {value: 30,},
+  {value: 40,},
+  {value: 50,},
+  {value: 60,},
+  {value: 70,},
+  {value: 80,},
+  {value: 90,},
   {
     value: 100,
-    label: '七日後',
+    label: '10days after',
   },
 ];
 
-const VarticalSlider = () => {
-  const classes = useStyles()
-  return (
-    <Card className={classes.root}>
-      <Typography id="vertical-slider" gutterBottom>
-        Date
-      </Typography>
-      <Slider
-          className={classes.slider}
-          orientation="vertical"
-          defaultValue={[20, 100]}
-          aria-labelledby="vertical-slider"
-          getAriaValueText={valuetext}
-          marks={marks}
-          step={10}
-        />
-    </Card>
-  )
+function valuetext(value) {
+  return `${value}`;
 }
-export default VarticalSlider
+function valueLabelFormat(value) {
+  return `${marks.findIndex(mark => mark.value === value)}d`;
+}
+
+export default function DiscreteSlider() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <Slider
+        defaultValue={20}
+        getAriaValueText={valuetext}
+        valueLabelFormat={valueLabelFormat}
+        aria-labelledby="discrete-slider"
+        valueLabelDisplay="on"
+        step={null}
+        marks={marks}
+      />
+      {/* <Typography id="discrete-slider" gutterBottom>
+        date
+      </Typography> */}
+    </div>
+  );
+}
+

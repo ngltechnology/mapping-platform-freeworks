@@ -4,7 +4,7 @@ import "../styles/Map.scss"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import Pin from "./Pin.jsx"
 import GrowCardContainer from "../containers/CardContainer.js"
-import VarticalSlider from "./slider.jsx"
+import DiscreteSlider from "./slider.jsx"
 import { DialogContainer2 } from "../containers/DialogContainer";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_DEV_API_URL;
@@ -22,7 +22,7 @@ class Map extends React.Component{
       // photoURL,
       markerClicked
     } = this.props
-    const maptype = "streets"
+    const maptype = "light"
     const mapStyle = `mapbox://styles/mapbox/${maptype}-v10`
     return (
       <React.Fragment> 
@@ -43,7 +43,7 @@ class Map extends React.Component{
           : console.log("quests is not object") }  
         </ReactMapGL>
         <GrowCardContainer />
-        <VarticalSlider />
+        <DiscreteSlider />
         <DialogContainer2 />
       </React.Fragment>   
     )

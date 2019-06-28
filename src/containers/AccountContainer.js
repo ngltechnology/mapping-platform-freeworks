@@ -11,8 +11,12 @@ const mapStateToProps = state => ({
 })
 const mapDispatchToProps = dispatch => ({
   doLogout: () => {
-    auth.signOut()
-    dispatch(logOut())
+    if(window.confirm("ログアウトしますか？")){
+      auth.signOut()
+      dispatch(logOut())
+    }else{
+      return
+    }
   }
 })
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Account))
