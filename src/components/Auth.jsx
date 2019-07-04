@@ -23,6 +23,7 @@ class Auth extends Component {
       },
       progress: {
         textAlign: "center",
+        position: "absolute",
         top: "50vh"
       },
       logo: {

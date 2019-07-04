@@ -30,7 +30,7 @@ const Routing = () => (
     {/* <LinearProgress /> */}
     <Route path='/login' component={Auth} />
     <Route path='/start' component={StartStepper} />
-    <Route exact path="/" component={()=><Redirect to="/app" />} />
+    <Route exact path="/" component={()=><Redirect to="/app/map" />} />
     <Route path="/app" component={AppContainer}/>
   </Fragment>
 )
