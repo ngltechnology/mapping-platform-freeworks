@@ -17,23 +17,23 @@ class Auth extends Component {
   
   render(){
     const styles = {
-    sprit: {
-      backgroundColor: "#060A27",
-      height: "100vh"
-    },
-    progress: {
-      textAlign: "center",
-      top: "50vh"
-    },
-    logo: {
-      width: "70vw",
-      height: "70vw"
+      sprit: {
+        backgroundColor: "#060A27",
+        height: "100vh"
+      },
+      progress: {
+        textAlign: "center",
+        top: "50vh"
+      },
+      logo: {
+        width: "70vw",
+        height: "70vw"
+      }
     }
-  }
 
     return (
       <div style={styles.sprit}>
-        <img src="/src/images/FREEWORKS_bb.png" styles={styles.logo} />
+        <img alt="logo" src="/src/images/FREEWORKS_bb.png" styles={styles.logo} />
         <CircularProgress style={styles.progress}/>
         {this.props.uid===null 
           ? (

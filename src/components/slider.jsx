@@ -6,7 +6,6 @@ import Slider from '@material-ui/lab/Slider';
 const useStyles = makeStyles(() => ({
   root: {
     width: "80vw",
-    position: "absolute",
     left: "10vw",
     top: "8vh"
   }
